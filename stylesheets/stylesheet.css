@@ -13,6 +13,7 @@ body {
   background: linear-gradient(white, transparent, white), url("http://cdn.wallpapersafari.com/71/53/612Fb3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 50% 50%;
   width: 100%;
   height: 100vh;
   -webkit-filter: brightness(30%);
