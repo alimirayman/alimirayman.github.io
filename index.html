@@ -3,230 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mir Ayman Ali - Software Engineer & Entrepreneur. CEO of Shastho Limited, building digital healthcare in Bangladesh.">
-    <meta name="keywords" content="Mir Ayman Ali, Software Engineer, Entrepreneur, Shastho AI, Full Stack Developer">
+    <meta name="description" content="Mir Ayman Ali — Dhaka-based software engineer, entrepreneur, and CEO of Shastho Limited, building AI-enabled healthcare systems across Bangladesh.">
+    <meta name="keywords" content="Mir Ayman Ali, Shastho Limited, Software Engineer, Entrepreneur, Healthcare Technology, Bangladesh, AI, SaaS">
     <meta name="author" content="Mir Ayman Ali">
-    <meta name="google-site-verification" content="rwGrpa8w-RpfAHLnsToAkpuVZK8IA7gypVCRCpyNfO0" />
-
+    <meta name="google-site-verification" content="rwGrpa8w-RpfAHLnsToAkpuVZK8IA7gypVCRCpyNfO0">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mirayman.com">
-    <meta property="og:title" content="Mir Ayman Ali - Software Engineer & Entrepreneur">
-    <meta property="og:description" content="CEO of Shastho Limited. Building digital healthcare in Bangladesh.">
+    <meta property="og:title" content="Mir Ayman Ali — Software Engineer & Entrepreneur">
+    <meta property="og:description" content="CEO & Co-Founder of Shastho Limited. Building Bangladesh’s digital healthcare ecosystem with AI-driven infrastructure.">
     <meta property="og:image" content="https://mirayman.com/img/dot-art.png">
-
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@alimirayman">
-
-    <title>Mir Ayman Ali</title>
-
+    <link rel="canonical" href="https://mirayman.com">
+    <title>Mir Ayman Ali — Terminal Edition</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@300;400;500;600;700&family=SUSE:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./stylesheets/normalize.css">
     <link rel="stylesheet" href="./stylesheets/stylesheet.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <div class="nav-brand">MIR_AYMAN</div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+    <div class="matrix-overlay" aria-hidden="true"></div>
+    <div class="site-shell">
+        <header class="top-bar" role="banner">
+            <div class="top-bar__status" aria-label="Session identifier">
+                <span class="status-led" aria-hidden="true"></span>
+                <span class="status-host">mirayman@shastho</span>
+                <span class="status-path">~/about</span>
             </div>
-        </div>
-    </nav>
+            <nav class="command-deck" aria-label="Primary">
+                <button type="button" data-command-target="#summary" data-command="cat summary.txt">summary</button>
+                <button type="button" data-command-target="#ventures" data-command="open ventures.log">ventures</button>
+                <button type="button" data-command-target="#experience" data-command="tail -f experience.log">experience</button>
+                <button type="button" data-command-target="#expertise" data-command="less expertise.table">expertise</button>
+                <button type="button" data-command-target="#projects" data-command="ls projects/">projects</button>
+                <button type="button" data-command-target="#contact" data-command="ping social.txt">contact</button>
+            </nav>
+            <div class="top-bar__clock" id="system-clock" aria-live="polite">--:--</div>
+        </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <img src="./img/dot-art.png" alt="Mir Ayman Ali" class="hero-img">
-                <h1>MIR AYMAN ALI</h1>
-                <p class="hero-subtitle">Software Engineer & Entrepreneur</p>
-                <p class="hero-location">Dhaka, Bangladesh</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">// About</h2>
-            <div class="section-content">
-                <p>Dhaka-based software engineer, entrepreneur, and product builder with over a decade of experience in full-stack development and digital product leadership.</p>
-                <p>Currently leading <strong>Shastho Limited</strong>, Bangladesh's emerging digital healthcare ecosystem, combining deep technical expertise with a product-first mindset — building scalable, human-centered solutions that bridge complex systems with intuitive user experiences.</p>
-                <blockquote>
-                    "Technology should serve human well-being — not complexity."
-                </blockquote>
-                <p class="education"><strong>Education:</strong> B.Sc. in Computer Science - BRAC University, Dhaka</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="section section-dark">
-        <div class="container">
-            <h2 class="section-title">// Experience</h2>
-            <div class="section-content">
-                <div class="timeline">
-                    <div class="job">
-                        <div class="job-header">
-                            <h3>Chief Executive Officer & Co-Founder</h3>
-                            <span class="year">2021 – Present</span>
-                        </div>
-                        <div class="company">Shastho Limited</div>
-                        <p>Spearheading Bangladesh's unified digital healthcare platform integrating AI, lab testing, and doctor consultation. Leading partnerships with major hospitals including Samorita, BRAC Healthcare, and Aichi Healthcare Group.</p>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <h3>Senior Software Engineer</h3>
-                            <span class="year">2019 – 2021</span>
-                        </div>
-                        <div class="company">Obviously AI</div>
-                        <p>Led full-stack development on a no-code AI analytics platform built on Vue.js, Node.js, and Google Cloud Platform. Delivered major releases improving onboarding, data visualization, and automated machine-learning workflows.</p>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <h3>Full-Stack Engineer</h3>
-                            <span class="year">2018 – 2019</span>
-                        </div>
-                        <div class="company">HSBlox, Inc.</div>
-                        <p>Developed blockchain-based healthcare data sharing modules using React, Node.js, and MongoDB. Designed and optimized APIs for HIPAA-compliant healthcare transactions.</p>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <h3>Senior Front-End Developer</h3>
-                            <span class="year">2017 – 2018</span>
-                        </div>
-                        <div class="company">ProSymmetry LLC</div>
-                        <p>Built enterprise project-management dashboards with Vue.js, TypeScript, and Syncfusion components.</p>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <h3>Head of Development</h3>
-                            <span class="year">2016 – 2017</span>
-                        </div>
-                        <div class="company">Hypnotic Code</div>
-                        <p>Oversaw design and engineering teams delivering digital solutions for local startups using Laravel, Vue, and MySQL.</p>
+        <div class="layout">
+            <aside class="profile-panel" id="profile">
+                <div class="ascii-panel">
+                    <img src="./img/dot-art.png" alt="Dot matrix portrait of Mir Ayman Ali" class="ascii-panel__image">
+                    <div class="ascii-panel__meta">
+                        <span>dot-matrix edition</span>
+                        <span>Dhaka / UTC+6</span>
+                        <span>build: v2025.10.25</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title">// Skills</h2>
-            <div class="section-content">
-                <div class="skills-grid">
-                    <div class="skill-group">
-                        <h3>Languages</h3>
-                        <p>JavaScript • TypeScript • Dart • PHP</p>
-                    </div>
-                    <div class="skill-group">
-                        <h3>Frontend</h3>
-                        <p>React • Vue 2/3 • Nuxt • Flutter</p>
-                    </div>
-                    <div class="skill-group">
-                        <h3>Backend</h3>
-                        <p>Node.js • Express • Laravel</p>
-                    </div>
-                    <div class="skill-group">
-                        <h3>Databases</h3>
-                        <p>MongoDB • PostgreSQL • MySQL • SQLite</p>
-                    </div>
-                    <div class="skill-group">
-                        <h3>Cloud & DevOps</h3>
-                        <p>AWS • GCP • Firebase • Docker</p>
-                    </div>
-                    <div class="skill-group">
-                        <h3>Architecture</h3>
-                        <p>Event-Sourced • Local-First • Serverless</p>
-                    </div>
+                <div class="profile-panel__block">
+                    <h1 class="profile-name">Mir Ayman Ali</h1>
+                    <p class="profile-title">Software Engineer · Entrepreneur · Product Lead</p>
+                    <p class="profile-summary">Dhaka-based builder of AI-driven healthcare systems and human-centered digital products with a decade of full-stack leadership.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="section section-dark">
-        <div class="container">
-            <h2 class="section-title">// Projects</h2>
-            <div class="section-content">
-                <div class="projects-grid">
-                    <div class="project">
-                        <h3>Shastho AI Platform</h3>
-                        <p>AI-driven healthcare automation and digital health vault for patient data management.</p>
-                        <div class="tech">Node.js • AWS • AI/ML</div>
+                <dl class="profile-meta">
+                    <div>
+                        <dt>Role</dt>
+                        <dd>CEO & Co-Founder, Shastho Limited</dd>
                     </div>
-
-                    <div class="project">
-                        <h3>BusinessOS</h3>
-                        <p>Offline-ready SaaS desktop platform for Bangladeshi SMEs. Local-first ERP built on Electron + Nuxt + SQLite.</p>
-                        <div class="tech">Electron • Nuxt • SQLite</div>
+                    <div>
+                        <dt>Focus</dt>
+                        <dd>AI platforms · Healthcare infrastructure · Local-first SaaS</dd>
                     </div>
-
-                    <div class="project">
-                        <h3>Shastho Elite App</h3>
-                        <p>Concierge healthcare experience combining Flutter mobile app with Node.js microservices.</p>
-                        <div class="tech">Flutter • Node.js • Microservices</div>
+                    <div>
+                        <dt>Location</dt>
+                        <dd>Dhaka, Bangladesh (UTC+06)</dd>
                     </div>
+                    <div>
+                        <dt>Education</dt>
+                        <dd>B.Sc. Computer Science, BRAC University</dd>
+                    </div>
+                </dl>
+                <div class="profile-links" aria-label="Key links">
+                    <a href="https://shastho.ai" target="_blank" rel="noopener" class="link-item">shastho.ai</a>
+                    <a href="https://linkedin.com/in/miraymanali" target="_blank" rel="noopener" class="link-item">linkedin.com/in/miraymanali</a>
+                    <a href="https://github.com/miraymanali" target="_blank" rel="noopener" class="link-item">github.com/miraymanali</a>
+                    <a href="https://twitter.com/alimirayman" target="_blank" rel="noopener" class="link-item">@alimirayman</a>
                 </div>
-            </div>
-        </div>
-    </section>
+            </aside>
 
-    <!-- Contact -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">// Contact</h2>
-            <div class="section-content">
-                <div class="contact-grid">
-                    <a href="https://shastho.ai" target="_blank" class="contact-link">
-                        <span>Website</span>
-                        <span>shastho.ai</span>
-                    </a>
-                    <a href="https://linkedin.com/in/miraymanali" target="_blank" class="contact-link">
-                        <span>LinkedIn</span>
-                        <span>miraymanali</span>
-                    </a>
-                    <a href="https://github.com/miraymanali" target="_blank" class="contact-link">
-                        <span>GitHub</span>
-                        <span>miraymanali</span>
-                    </a>
-                    <a href="https://twitter.com/alimirayman" target="_blank" class="contact-link">
-                        <span>Twitter</span>
-                        <span>@alimirayman</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+            <main class="terminal" id="terminal" role="main">
+                <section class="terminal-feed" id="terminal-feed" aria-live="polite">
+                    <div class="terminal-line">
+                        <span class="prompt">mirayman@shastho:~$</span>
+                        <span class="cmd">bootstrap sequence complete</span>
+                    </div>
+                </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 Mir Ayman Ali</p>
+                <section id="summary" class="terminal-block" data-section>
+                    <header class="terminal-command">
+                        <span class="prompt">mirayman@shastho:~$</span>
+                        <span class="cmd">cat summary.txt</span>
+                    </header>
+                    <div class="terminal-output">
+                        <p>Mir Ayman Ali is a Dhaka-based software engineer, entrepreneur, and product builder orchestrating Bangladesh’s emerging digital healthcare ecosystem. He pairs a decade of full-stack delivery with product leadership across AI tooling, health-tech, and large-scale SaaS.</p>
+                        <p>At <strong>Shastho Limited</strong>, he is building a unified health platform that blends AI-driven automation, lab networks, doctor collaboration, and corporate wellness into a single, resilient system designed for real-world healthcare ops.</p>
+                    </div>
+                </section>
+
+                <section id="ventures" class="terminal-block" data-section>
+                    <header class="terminal-command">
+                        <span class="prompt">mirayman@shastho:~$</span>
+                        <span class="cmd">open ventures.log</span>
+                    </header>
+                    <div class="terminal-output">
+                        <article class="output-card">
+                            <h2>Shastho Limited · 2021 – Present</h2>
+                            <p>Leading the build of Bangladesh’s digital healthcare stack: AI-enabled health data automation, lab integrations, longitudinal care plans, and corporate health programs across Evercare, BRAC Healthcare, Asgar Ali Hospital, and more.</p>
+                            <ul>
+                                <li>Steering architecture on AWS, Node.js, and event-driven services.</li>
+                                <li>Shipping sub-brands including Shastho AI, Shastho Card, Shastho Elite, and Shastho Corporate.</li>
+                                <li>Guiding multi-disciplinary teams spanning engineering, design, ops, and clinical partners.</li>
+                            </ul>
+                        </article>
+                        <article class="output-card">
+                            <h2>Assent · Luxury Real Estate & Architecture</h2>
+                            <p>Co-creating a design-led architecture studio crafting premium residential and commercial environments rooted in material craft and spatial storytelling.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="experience" class="terminal-block" data-section>
+                    <header class="terminal-command">
+                        <span class="prompt">mirayman@shastho:~$</span>
+                        <span class="cmd">tail -n +1 experience.log</span>
+                    </header>
+                    <div class="terminal-output stack">
+                        <article class="timeline-entry">
+                            <header>
+                                <h3>Obviously AI · Senior Software Engineer · 2019 – 2021</h3>
+                                <span class="timeline-location">Remote</span>
+                            </header>
+                            <p>Led full-stack delivery on a no-code AI analytics platform built with Vue.js, Node.js, and Google Cloud Platform, improving onboarding, ML automation, and realtime deployments.</p>
+                        </article>
+                        <article class="timeline-entry">
+                            <header>
+                                <h3>HSBlox, Inc. · Full-Stack Engineer · 2018 – 2019</h3>
+                                <span class="timeline-location">Remote</span>
+                            </header>
+                            <p>Built blockchain-backed healthcare data exchange modules with React, Node.js, and MongoDB, delivering HIPAA-aware APIs and streaming dashboards.</p>
+                        </article>
+                        <article class="timeline-entry">
+                            <header>
+                                <h3>ProSymmetry LLC · Senior Front-End Developer · 2017 – 2018</h3>
+                                <span class="timeline-location">Remote</span>
+                            </header>
+                            <p>Scaled enterprise project-management interfaces using Vue.js, TypeScript, and Syncfusion, standardizing UI systems across product lines.</p>
+                        </article>
+                        <article class="timeline-entry">
+                            <header>
+                                <h3>Hypnotic Code · Head of Development · 2016 – 2017</h3>
+                                <span class="timeline-location">Dhaka</span>
+                            </header>
+                            <p>Directed cross-functional teams shipping Laravel and Vue-powered products for startups, owning the lifecycle from discovery to deployment.</p>
+                        </article>
+                        <article class="timeline-entry">
+                            <header>
+                                <h3>The Profs · Web Developer · 2014 – 2016</h3>
+                                <span class="timeline-location">Remote</span>
+                            </header>
+                            <p>Engineered scalable tutoring platforms with Node.js and MongoDB, cutting hosting costs while improving uptime and modularity.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="expertise" class="terminal-block" data-section>
+                    <header class="terminal-command">
+                        <span class="prompt">mirayman@shastho:~$</span>
+                        <span class="cmd">less expertise.table</span>
+                    </header>
+                    <div class="terminal-output">
+                        <table class="expertise-table" aria-label="Technical expertise">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Domain</th>
+                                    <th scope="col">Stack & Systems</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Languages</td>
+                                    <td>JavaScript (ES6+), TypeScript, Dart, PHP</td>
+                                </tr>
+                                <tr>
+                                    <td>Frontend</td>
+                                    <td>React, Vue 2/3, Nuxt, Flutter</td>
+                                </tr>
+                                <tr>
+                                    <td>Backend</td>
+                                    <td>Node.js, Express, Laravel</td>
+                                </tr>
+                                <tr>
+                                    <td>Datastores</td>
+                                    <td>MongoDB, PostgreSQL, MySQL, SQLite</td>
+                                </tr>
+                                <tr>
+                                    <td>Architecture</td>
+                                    <td>Event-sourced systems, local-first apps, serverless infrastructure</td>
+                                </tr>
+                                <tr>
+                                    <td>Cloud & DevOps</td>
+                                    <td>AWS, Google Cloud Platform, Firebase, Docker, Cloudflare, CI/CD</td>
+                                </tr>
+                                <tr>
+                                    <td>Product Craft</td>
+                                    <td>Design systems, Tailwind CSS, Figma, Adobe Suite, venture ops</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="projects" class="terminal-block" data-section>
+                    <header class="terminal-command">
+                        <span class="prompt">mirayman@shastho:~$</span>
+                        <span class="cmd">ls projects/</span>
+                    </header>
+                    <div class="terminal-output cards">
+                        <article class="project-card">
+                            <h3>Shastho AI Platform</h3>
+                            <p>Unified care platform powering longitudinal patient data, diagnostics, and automation across Bangladesh’s leading hospital networks.</p>
+                            <span class="tag">AI & Data Fabric</span>
+                            <span class="tag">AWS</span>
+                            <span class="tag">Node.js</span>
+                        </article>
+                        <article class="project-card">
+                            <h3>BusinessOS · Local-first ERP</h3>
+                            <p>Offline-first SaaS desktop suite for SMEs, built with Electron, Nuxt, and SQLite to keep mission-critical operations running without the cloud.</p>
+                            <span class="tag">Local-first</span>
+                            <span class="tag">Electron</span>
+                            <span class="tag">Nuxt</span>
+                        </article>
+                        <article class="project-card">
+                            <h3>Shastho Elite</h3>
+                            <p>Concierge healthcare service blending Flutter experiences, microservices, and dedicated clinical workflows for high-touch care.</p>
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Service Design</span>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="philosophy" class="terminal-block" data-section>
+                    <header class="terminal-command">
+                        <span class="prompt">mirayman@shastho:~$</span>
+                        <span class="cmd">printf &quot;philosophy.md&quot;</span>
+                    </header>
+                    <div class="terminal-output">
+                        <blockquote>“Technology should serve human well-being — not complexity.”</blockquote>
+                        <p>Every release is evaluated against impact on people, clinical workflows, and long-term resilience. Empathy, precision, and systems thinking stay in the loop alongside high-velocity engineering.</p>
+                    </div>
+                </section>
+
+                <section id="contact" class="terminal-block" data-section>
+                    <header class="terminal-command">
+                        <span class="prompt">mirayman@shastho:~$</span>
+                        <span class="cmd">ping social.txt</span>
+                    </header>
+                    <div class="terminal-output">
+                        <ul class="contact-grid">
+                            <li><a href="mailto:ayman@shastho.ai" class="contact-link">ayman@shastho.ai</a></li>
+                            <li><a href="https://shastho.ai" target="_blank" rel="noopener" class="contact-link">shastho.ai</a></li>
+                            <li><a href="https://linkedin.com/in/miraymanali" target="_blank" rel="noopener" class="contact-link">LinkedIn · miraymanali</a></li>
+                            <li><a href="https://github.com/miraymanali" target="_blank" rel="noopener" class="contact-link">GitHub · miraymanali</a></li>
+                            <li><a href="https://twitter.com/alimirayman" target="_blank" rel="noopener" class="contact-link">Twitter · @alimirayman</a></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <footer class="terminal-footer">
+                    <p>© <span id="copyright-year">2025</span> Mir Ayman Ali · All systems nominal.</p>
+                </footer>
+            </main>
         </div>
-    </footer>
+    </div>
 
     <script type="application/ld+json">
     {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "Person",
         "@id": "https://mirayman.com/#person",
         "name": "Mir Ayman Ali",
-        "jobTitle": "Software Engineer & Entrepreneur",
-        "description": "CEO & Co-Founder of Shastho Limited",
+        "alternateName": "Mir Ayman",
+        "jobTitle": [
+            "Chief Executive Officer",
+            "Software Engineer",
+            "Entrepreneur"
+        ],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Shastho Limited",
+            "url": "https://www.shastho.ai",
+            "sameAs": "https://www.linkedin.com/company/shastho"
+        },
+        "founder": {
+            "@type": "Organization",
+            "name": "Shastho Limited",
+            "url": "https://www.shastho.ai"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "BRAC University",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "Bangladesh",
+                "addressLocality": "Dhaka"
+            }
+        },
+        "description": "Dhaka-based software engineer and entrepreneur leading Shastho Limited to build AI-enabled healthcare infrastructure across Bangladesh.",
         "url": "https://mirayman.com",
         "image": "https://mirayman.com/img/dot-art.png",
         "address": {
@@ -239,8 +324,23 @@
             "https://github.com/miraymanali",
             "https://twitter.com/alimirayman",
             "https://shastho.ai"
-        ]
+        ],
+        "knowsAbout": [
+            "Artificial Intelligence",
+            "Healthcare Technology",
+            "Full-Stack Development",
+            "Event-Sourced Systems",
+            "Local-First Applications",
+            "Product Strategy"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Business",
+            "email": "ayman@shastho.ai",
+            "areaServed": "BD"
+        }
     }
     </script>
+    <script src="./js/components.js" defer></script>
 </body>
 </html>
