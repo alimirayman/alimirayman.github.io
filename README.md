@@ -2,7 +2,7 @@
 
 Clean, minimal portfolio with retro monospaced typography.
 
-🌐 **Live:** [mirayman.com](https://mirayman.com)
+🌐 **Live:** [aymana.li](https://aymana.li)
 
 ## Design Philosophy
 
