@@ -10,7 +10,7 @@
 
 I’m **Mir Ayman Ali** — a systems architect, entrepreneur, and product builder passionate about solving real problems through technology and design.
 
-For me, **technology is a tool**, not an end. I build systems and infrastructure that simplify complex challenges — from healthcare to business finance to real estate. I enjoy learning across disciplines like **business, finance, health, religion, and design**, often through **audiobooks, tutorials, or anime** rather than traditional books. My curiosity drives me to keep exploring and creating.
+For me, **technology is a tool**, not an end. I build systems and infrastructure that simplify complex challenges — from healthcare to business finance to real estate. I enjoy learning across disciplines like **business, finance, health, religion, and design**, often through **audiobooks, tutorials** rather than traditional books. My curiosity drives me to keep exploring and creating.
 
 Rooted in **Islamic values**, I believe in purposeful work — using technology ethically to uplift lives and create sustainable impact. My ventures reflect that mission: building products that make essential services **simple, accessible, and human**.
 
