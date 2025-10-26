@@ -26,209 +26,245 @@
     <div class="site-shell">
         <header class="top-bar" role="banner">
             <div class="top-bar__brand">
-                <span class="brand-id">Mir Ayman Ali</span>
-                <span class="brand-tagline">Founder, Shastho Limited</span>
+                <span class="brand__eyebrow">entrepreneur · engineer</span>
+                <strong class="brand__name">Mir Ayman Ali</strong>
             </div>
             <nav class="top-bar__nav" id="primary-nav" aria-label="Primary">
                 <a href="#about" data-nav>About</a>
+                <a href="#signal" data-nav>Signal</a>
                 <a href="#ventures" data-nav>Ventures</a>
-                <a href="#focus" data-nav>Focus</a>
-                <a href="#systems" data-nav>Systems</a>
-                <a href="#history" data-nav>History</a>
-                <a href="#philosophy" data-nav>Philosophy</a>
+                <a href="#build" data-nav>Build Log</a>
+                <a href="#tools" data-nav>Tools</a>
+                <a href="#timeline" data-nav>Timeline</a>
                 <a href="#contact" data-nav>Contact</a>
             </nav>
         </header>
 
-        <div class="layout">
-            <aside class="profile-panel" id="profile">
-                <div class="ascii-panel">
-                    <img src="./img/dot-art-2.png" alt="Dot matrix portrait of Mir Ayman Ali" class="ascii-panel__image">
-                    <div class="ascii-panel__caption">
-                        <span>dot-matrix edition</span>
-                        <span>Dhaka · UTC+6</span>
-                        <span>build v2025.10.25</span>
+        <main class="page" role="main">
+            <section id="about" class="slice slice--hero" data-section>
+                <div class="slice__inner hero-block">
+                    <div class="hero-block__primary">
+                        <span class="hero-block__kicker">Founder, Shastho Limited</span>
+                        <h1 class="hero-block__title">Mir Ayman Ali</h1>
+                        <p class="hero-block__lede">I assemble teams, code, and capital into healthcare systems that feel humane, stay calm under pressure, and scale with discipline.</p>
+                        <p class="hero-block__body">Based in Dhaka, I lead Shastho Limited—Bangladesh’s integrated health stack that spans diagnostics, clinics, AI automation, and enterprise wellness. Every platform I deploy balances operational rigor with narrative clarity so clinicians, operators, and patients trust the services they touch.</p>
+                        <div class="hero-block__chips" aria-label="Focus areas">
+                            <span class="chip">Healthcare Infrastructure</span>
+                            <span class="chip">AI Platforms</span>
+                            <span class="chip">Local-first SaaS</span>
+                            <span class="chip">Systems Thinking</span>
+                        </div>
+                        <div class="hero-block__links" aria-label="Primary links">
+                            <a href="mailto:ayman@shastho.ai">Email</a>
+                            <a href="https://shastho.ai" target="_blank" rel="noopener">Shastho</a>
+                            <a href="https://linkedin.com/in/miraymanali" target="_blank" rel="noopener">LinkedIn</a>
+                            <a href="https://github.com/miraymanali" target="_blank" rel="noopener">GitHub</a>
+                            <a href="https://twitter.com/alimirayman" target="_blank" rel="noopener">Twitter</a>
+                        </div>
                     </div>
+                    <aside class="hero-block__aside">
+                        <figure class="portrait">
+                            <img src="./img/dot-art-2.png" alt="Dot matrix portrait of Mir Ayman Ali">
+                            <figcaption>dot-matrix · v2025.10.25 · Dhaka</figcaption>
+                        </figure>
+                        <dl class="hero-block__meta">
+                            <div>
+                                <dt>Role</dt>
+                                <dd>CEO & Co-Founder, Shastho Limited</dd>
+                            </div>
+                            <div>
+                                <dt>Field Notes</dt>
+                                <dd>Event-driven care, AI orchestration, service design</dd>
+                            </div>
+                            <div>
+                                <dt>Location</dt>
+                                <dd>Dhaka, Bangladesh (UTC+06)</dd>
+                            </div>
+                            <div>
+                                <dt>Education</dt>
+                                <dd>B.Sc. Computer Science, BRAC University</dd>
+                            </div>
+                        </dl>
+                    </aside>
                 </div>
-                <div class="profile-panel__intro">
-                    <h1 class="profile-name">Mir Ayman Ali</h1>
-                    <p class="profile-role">Entrepreneur · Systems Architect · Builder</p>
-                    <p class="profile-summary">Founder of Shastho Limited, building Bangladesh’s integrated healthcare infrastructure. I design pragmatic systems that join clinics, diagnostics, and employers into reliable care networks.</p>
-                    <p class="profile-current">Presently steering Shastho’s AI-driven operating stack across diagnostics, corporate wellness, and concierge care.</p>
-                </div>
-                <dl class="profile-meta">
-                    <div>
-                        <dt>Role</dt>
-                        <dd>CEO & Co-Founder, Shastho Limited</dd>
-                    </div>
-                    <div>
-                        <dt>Focus</dt>
-                        <dd>AI platforms · Healthcare infrastructure · Local-first SaaS</dd>
-                    </div>
-                    <div>
-                        <dt>Location</dt>
-                        <dd>Dhaka, Bangladesh (UTC+06)</dd>
-                    </div>
-                    <div>
-                        <dt>Education</dt>
-                        <dd>B.Sc. Computer Science, BRAC University</dd>
-                    </div>
-                </dl>
-                <div class="profile-links" aria-label="Key links">
-                    <a href="mailto:ayman@shastho.ai">ayman@shastho.ai</a>
-                    <a href="https://shastho.ai" target="_blank" rel="noopener">shastho.ai</a>
-                    <a href="https://linkedin.com/in/miraymanali" target="_blank" rel="noopener">linkedin.com/in/miraymanali</a>
-                    <a href="https://github.com/miraymanali" target="_blank" rel="noopener">github.com/miraymanali</a>
-                    <a href="https://twitter.com/alimirayman" target="_blank" rel="noopener">@alimirayman</a>
-                </div>
-            </aside>
+            </section>
 
-            <main class="content" role="main">
-                <section id="about" class="section-block" data-section>
-                    <h2>About</h2>
-                    <div class="section-block__body">
-                        <p>I build ventures that modernise healthcare for emerging markets. The aim is simple: respectful services that deliver clinical trust with operational discipline.</p>
-                        <p>The last decade has been spent assembling teams, infrastructure, and capital to join fragmented patient journeys into coherent experiences—anchored in systems thinking, measurable outcomes, and clear storytelling.</p>
+            <section id="signal" class="slice" data-section>
+                <div class="slice__inner">
+                    <header class="section-head">
+                        <span class="section-head__eyebrow">Signal</span>
+                        <h2 class="section-head__title">Working principles that shape everything I build.</h2>
+                    </header>
+                    <div class="signal">
+                        <ul class="signal__list">
+                            <li>Healthcare services earn trust when they stay calm on the worst day. I engineer for redundancy, transparency, and human clarity.</li>
+                            <li>Technology should serve well-being—not complexity. Every decision balances measurable outcomes with respectful storytelling.</li>
+                            <li>Golden-ratio structure and operational discipline turn fragmented journeys into coherent care networks.</li>
+                            <li>If a platform cannot be explained in plain language, we simplify until it can.</li>
+                        </ul>
+                        <blockquote class="signal__quote">Technology should serve human well-being — not complexity.</blockquote>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section id="ventures" class="section-block" data-section>
-                    <h2>Ventures</h2>
-                    <div class="section-block__body stack">
-                        <article class="card">
-                            <h3>Shastho Limited · 2021 – Present</h3>
-                            <p>Bangladesh’s most complete digital healthcare stack—linking automation, labs, clinics, and enterprise wellness inside a single operating layer.</p>
+            <section id="ventures" class="slice" data-section>
+                <div class="slice__inner">
+                    <header class="section-head">
+                        <span class="section-head__eyebrow">Ventures</span>
+                        <h2 class="section-head__title">Companies I co-create to modernise care for emerging markets.</h2>
+                    </header>
+                    <div class="rail rail--split">
+                        <article class="rail-card">
+                            <header class="rail-card__header">
+                                <span class="rail-card__label">2021 — Present</span>
+                                <h3>Shastho Limited</h3>
+                            </header>
+                            <p>Bangladesh’s integrated digital healthcare ecosystem spanning diagnostics, clinics, AI automation, and corporate wellness—delivered as a single, trustworthy operating stack.</p>
                             <ul>
-                                <li>Architected event-driven infrastructure on AWS and Node.js across diagnostics, pharmacy, and care teams.</li>
-                                <li>Launched Shastho AI, Card, Elite, and Corporate to serve consumers, employers, and hospitals with one stack.</li>
-                                <li>Lead multidisciplinary teams spanning product, engineering, design, and clinical partnerships.</li>
+                                <li>Launched Shastho AI, Card, Elite, and Corporate for consumers, professionals, and employers.</li>
+                                <li>Event-driven infrastructure across AWS and Node.js connecting labs, clinics, and care teams.</li>
+                                <li>Partnerships with Evercare, BRAC Healthcare, Asgar Ali Hospital, and nationwide diagnostics networks.</li>
                             </ul>
                         </article>
-                        <article class="card">
-                            <h3>Assent · Design-Led Real Estate</h3>
-                            <p>Co-founder of a studio delivering high-comfort residential and commercial spaces with a focus on craft, acoustics, and long-term maintenance.</p>
+                        <article class="rail-card">
+                            <header class="rail-card__header">
+                                <span class="rail-card__label">Co-founder</span>
+                                <h3>Assent</h3>
+                            </header>
+                            <p>Design-led real estate and architecture studio crafting high-comfort residential and commercial spaces with deep attention to acoustics, materiality, and long-term care.</p>
                         </article>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section id="focus" class="section-block" data-section>
-                    <h2>Focus</h2>
-                    <div class="section-block__body expertise-grid">
-                        <div>
-                            <h3>Venture Design</h3>
-                            <p>Structuring regulated business lines with durable unit economics and clear governance.</p>
-                        </div>
-                        <div>
-                            <h3>Systems Engineering</h3>
-                            <p>Event-driven platforms, local-first tooling, and redundant ops that keep clinicians in control.</p>
-                        </div>
-                        <div>
-                            <h3>Product Leadership</h3>
-                            <p>Aligning cross-functional teams through service blueprints, velocity rituals, and intentional hiring.</p>
-                        </div>
-                        <div>
-                            <h3>Technical Edge</h3>
-                            <p>JavaScript/TypeScript · Node.js · Vue/Nuxt · Flutter · AWS · GCP · PostgreSQL · MongoDB.</p>
-                        </div>
-                        <div>
-                            <h3>Experience Design</h3>
-                            <p>Design systems, narratives, and operator handbooks that scale culture without noise.</p>
-                        </div>
-                        <div>
-                            <h3>Growth & Partnerships</h3>
-                            <p>Hospital networks, diagnostics, insurers, and corporate wellness programs across South Asia.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="systems" class="section-block" data-section>
-                    <h2>Systems</h2>
-                    <div class="section-block__body project-grid">
-                        <article class="project-card">
+            <section id="build" class="slice" data-section>
+                <div class="slice__inner">
+                    <header class="section-head">
+                        <span class="section-head__eyebrow">Build Log</span>
+                        <h2 class="section-head__title">Selected platforms and products shaped with code and narrative.</h2>
+                    </header>
+                    <div class="grid grid--thirds">
+                        <article class="tile">
                             <h3>Shastho AI Platform</h3>
-                            <p>Unified health stack connecting patient data, diagnostics, clinics, and enterprise wellness with governed data flows.</p>
-                            <span>AI Orchestration · Care Networks · Event Infrastructure</span>
+                            <p>AI-driven healthcare automation and a digital health vault aligning patient data, diagnostics, clinics, and enterprise wellness.</p>
+                            <span>AI orchestration · Governed data flows</span>
                         </article>
-                        <article class="project-card">
+                        <article class="tile">
                             <h3>BusinessOS</h3>
-                            <p>Local-first ERP powering SMEs with offline resilience, financial tooling, and modular workflows tuned for emerging markets.</p>
-                            <span>Local-first · Electron · Nuxt · SQLite</span>
+                            <p>Local-first ERP for Bangladeshi SMEs combining offline resilience with modular financial tooling.</p>
+                            <span>Electron · Nuxt · SQLite</span>
                         </article>
-                        <article class="project-card">
+                        <article class="tile">
                             <h3>Shastho Elite</h3>
-                            <p>Concierge care program unifying Flutter touchpoints, microservices, and white-glove operations for high-intent professionals.</p>
-                            <span>Service Design · Flutter · Node.js</span>
+                            <p>Concierge healthcare experience merging Flutter touchpoints with Node.js microservices for high-intent professionals.</p>
+                            <span>Flutter · Microservices · Service Design</span>
                         </article>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section id="history" class="section-block" data-section>
-                    <h2>History</h2>
-                    <div class="section-block__body">
-                        <ul class="experience-list">
-                            <li>
-                                <div class="experience-list__heading">
-                                    <span class="experience-role">Obviously AI · Senior Software Engineer</span>
-                                    <span class="experience-meta">2019 – 2021 · Remote</span>
-                                </div>
-                                <p>Led end-to-end delivery for the no-code AI analytics platform—shipping onboarding, automated ML pipelines, and realtime deployment workflows in Vue.js, Node.js, and GCP.</p>
-                            </li>
-                            <li>
-                                <div class="experience-list__heading">
-                                    <span class="experience-role">HSBlox · Full-Stack Engineer</span>
-                                    <span class="experience-meta">2018 – 2019 · Remote</span>
-                                </div>
-                                <p>Delivered blockchain-backed healthcare exchange modules, HIPAA-aware APIs, and streaming dashboards across React, Node.js, and MongoDB.</p>
-                            </li>
-                            <li>
-                                <div class="experience-list__heading">
-                                    <span class="experience-role">ProSymmetry · Senior Front-End Developer</span>
-                                    <span class="experience-meta">2017 – 2018 · Remote</span>
-                                </div>
+            <section id="tools" class="slice" data-section>
+                <div class="slice__inner">
+                    <header class="section-head">
+                        <span class="section-head__eyebrow">Tools</span>
+                        <h2 class="section-head__title">The stack I reach for when shaping regulated products.</h2>
+                    </header>
+                    <div class="grid grid--six">
+                        <div class="tile tile--light">
+                            <h3>Languages</h3>
+                            <p>JavaScript (ES6+), TypeScript, Dart, PHP.</p>
+                        </div>
+                        <div class="tile tile--light">
+                            <h3>Frontend</h3>
+                            <p>React, Vue 2 &amp; 3, Nuxt, Flutter.</p>
+                        </div>
+                        <div class="tile tile--light">
+                            <h3>Backend</h3>
+                            <p>Node.js, Express, Laravel.</p>
+                        </div>
+                        <div class="tile tile--light">
+                            <h3>Data</h3>
+                            <p>MongoDB, PostgreSQL, MySQL, SQLite.</p>
+                        </div>
+                        <div class="tile tile--light">
+                            <h3>Architecture</h3>
+                            <p>Event-sourced systems, local-first apps, serverless infrastructure.</p>
+                        </div>
+                        <div class="tile tile--light">
+                            <h3>Ops &amp; Design</h3>
+                            <p>AWS, GCP, Firebase, Docker, Tailwind, Figma, CI/CD pipelines.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="timeline" class="slice" data-section>
+                <div class="slice__inner">
+                    <header class="section-head">
+                        <span class="section-head__eyebrow">Timeline</span>
+                        <h2 class="section-head__title">Roles that shaped my product and systems playbook.</h2>
+                    </header>
+                    <ol class="timeline">
+                        <li>
+                            <span class="timeline__era">2019 — 2021 · Remote</span>
+                            <div class="timeline__content">
+                                <h3>Obviously AI · Senior Software Engineer</h3>
+                                <p>Led full-stack delivery for the no-code AI analytics platform across onboarding, automated ML pipelines, and realtime deployment workflows.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="timeline__era">2018 — 2019 · Remote</span>
+                            <div class="timeline__content">
+                                <h3>HSBlox · Full-Stack Engineer</h3>
+                                <p>Delivered blockchain-backed healthcare exchange modules, HIPAA-aware APIs, and streaming dashboards with React, Node.js, and MongoDB.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="timeline__era">2017 — 2018 · Remote</span>
+                            <div class="timeline__content">
+                                <h3>ProSymmetry · Senior Front-End Developer</h3>
                                 <p>Scaled enterprise project-management interfaces with Vue.js and TypeScript, standardising data visualisation patterns for global PMOs.</p>
-                            </li>
-                            <li>
-                                <div class="experience-list__heading">
-                                    <span class="experience-role">Hypnotic Code · Head of Development</span>
-                                    <span class="experience-meta">2016 – 2017 · Dhaka</span>
-                                </div>
-                                <p>Directed cross-functional teams delivering Laravel and Vue products for startups—owning discovery through deployment.</p>
-                            </li>
-                            <li>
-                                <div class="experience-list__heading">
-                                    <span class="experience-role">The Profs · Web Developer</span>
-                                    <span class="experience-meta">2014 – 2016 · Remote</span>
-                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="timeline__era">2016 — 2017 · Dhaka</span>
+                            <div class="timeline__content">
+                                <h3>Hypnotic Code · Head of Development</h3>
+                                <p>Directed cross-functional teams delivering Laravel and Vue products for startups—from discovery through deployment.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="timeline__era">2014 — 2016 · Remote</span>
+                            <div class="timeline__content">
+                                <h3>The Profs · Web Developer</h3>
                                 <p>Built modular tutoring tooling on Node.js and MongoDB, improving reliability while cutting infrastructure spend.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </section>
 
-                <section id="philosophy" class="section-block" data-section>
-                    <h2>Philosophy</h2>
-                    <div class="section-block__body">
-                        <blockquote>“Keep the systems calm so people can do the real work.”</blockquote>
-                        <p>Everything I ship filters through that lens: can the team run it on their worst day, does it respect the clinician, and will it stay useful when the market shifts. If the answer is no, we simplify.</p>
+            <section id="contact" class="slice" data-section>
+                <div class="slice__inner">
+                    <header class="section-head">
+                        <span class="section-head__eyebrow">Contact</span>
+                        <h2 class="section-head__title">Building something that should respect clinicians and the people they serve?</h2>
+                    </header>
+                    <div class="callout">
+                        <p class="callout__lede">Let’s design the operating stack together.</p>
+                        <div class="callout__links">
+                            <a href="mailto:ayman@shastho.ai">Email</a>
+                            <a href="https://shastho.ai" target="_blank" rel="noopener">Shastho</a>
+                            <a href="https://linkedin.com/in/miraymanali" target="_blank" rel="noopener">LinkedIn</a>
+                            <a href="https://github.com/miraymanali" target="_blank" rel="noopener">GitHub</a>
+                            <a href="https://twitter.com/alimirayman" target="_blank" rel="noopener">Twitter</a>
+                        </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section id="contact" class="section-block" data-section>
-                    <h2>Contact</h2>
-                    <div class="section-block__body">
-                        <ul class="contact-list">
-                            <li><a href="mailto:ayman@shastho.ai">email</a></li>
-                            <li><a href="https://shastho.ai" target="_blank" rel="noopener">shastho.ai</a></li>
-                            <li><a href="https://linkedin.com/in/miraymanali" target="_blank" rel="noopener">LinkedIn</a></li>
-                            <li><a href="https://github.com/miraymanali" target="_blank" rel="noopener">GitHub</a></li>
-                            <li><a href="https://twitter.com/alimirayman" target="_blank" rel="noopener">Twitter</a></li>
-                        </ul>
-                    </div>
-                </section>
-
-                <p class="footer-note">© <span id="copyright-year">2025</span> Mir Ayman Ali · Crafted in Dhaka.</p>
-            </main>
-        </div>
+            <footer class="footer-note">© <span id="copyright-year">2025</span> Mir Ayman Ali · Crafted in Dhaka.</footer>
+        </main>
     </div>
 
     <script type="application/ld+json">
