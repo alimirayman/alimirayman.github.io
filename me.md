@@ -1,47 +1,86 @@
 # **Mir Ayman Ali**
 
-**Software Engineer & Entrepreneur**
+**Entrepreneur • Systems Architect • Product Builder**
 📍 Dhaka, Bangladesh
 🌐 [shastho.ai](https://shastho.ai) | [LinkedIn](https://linkedin.com/in/miraymanali) | [GitHub](https://github.com/miraymanali)
 
 ---
 
-## **Profile Summary**
+## **About Me**
 
-Mir Ayman Ali is a Dhaka-based software engineer, entrepreneur, and product builder with over a decade of experience in full-stack development and digital product leadership. He has worked with global technology firms and now leads **Shastho Limited**, Bangladesh’s emerging digital healthcare ecosystem.
+I’m **Mir Ayman Ali** — a systems architect, entrepreneur, and product builder passionate about solving real problems through technology and design.
 
-With a background spanning AI-driven platforms, healthcare technology, and large-scale SaaS systems, Mir Ayman Ali combines deep technical expertise with a product-first mindset — building scalable, human-centered solutions that bridge complex systems with intuitive user experiences.
+For me, **technology is a tool**, not an end. I build systems and infrastructure that simplify complex challenges — from healthcare to business finance to real estate. I enjoy learning across disciplines like **business, finance, health, religion, and design**, often through **audiobooks, tutorials, or anime** rather than traditional books. My curiosity drives me to keep exploring and creating.
+
+Rooted in **Islamic values**, I believe in purposeful work — using technology ethically to uplift lives and create sustainable impact. My ventures reflect that mission: building products that make essential services **simple, accessible, and human**.
+
+---
+
+## **Ventures**
+
+### **Shastho Limited (2021 – Present)**
+
+**Founder & CEO**
+
+Bangladesh’s healthcare system faces deep accessibility and infrastructure challenges — almost **65% of people with medical needs never reach formal healthcare facilities**, let alone digital platforms.
+That reality led me to found **Shastho Limited**, a company focused on **digitizing and connecting healthcare** through technology.
+
+* Building Bangladesh’s first holistic digital health ecosystem integrating **AI-driven automation**, **lab networks**, **doctor coordination**, and **corporate health programs**.
+* Partnered with leading healthcare groups including **Samorita Hospital**, **BRAC Healthcare**, and **Aichi Healthcare Group**.
+* Leading product and system design across multiple sub-brands:
+
+  * **Shastho AI** — automated health intelligence and analytics.
+  * **Shastho Card** — affordable membership for health access.
+  * **Shastho Elite** — concierge-style healthcare for professionals.
+  * **Shastho Corporate** — tailored employee wellness programs.
+* Built scalable infrastructure using **AWS**, **Node.js**, and **event-sourced local-first architecture** for data integrity and real-time sync.
+
+---
+
+### **BusinessOS**
+
+**Founder**
+
+Finance is one of the hardest and most expensive aspects of running a business in Bangladesh. Many small business owners struggle to manage finances and operations efficiently.
+
+To solve this, I’m building **BusinessOS** — a **local-first ERP and desktop SaaS** that makes **business finance easy and affordable** for entrepreneurs and SMEs.
+It’s built on an **offline-first stack** (Electron + Nuxt + SQLite) with **event-sourced data models**, allowing small businesses to operate reliably without needing constant connectivity.
+
+---
+
+### **ASSENT – Luxury Real Estate & Architecture**
+
+**Co-lead (with Architect Nazia Shafinaz)**
+
+Architecture and design are the other side of what I love — merging sustainability, aesthetics, and affordability.
+Through **ASSENT**, I collaborate with my wife, **Architect Nazia Shafinaz**, to create **sustainable, well-designed, and affordable real estate projects**.
+ASSENT blends architectural design precision with sustainable materials, crafting spaces that are practical yet beautiful.
+
+---
+
+## **Focus & Philosophy**
+
+* **System Thinking:** I love solving problems by designing entire ecosystems — not just apps.
+* **Design Precision:** I have a keen eye for detail and product polish, often taking time to perfect design systems and UX.
+* **Learning Mindset:** I’m a relentless learner, always exploring how different disciplines intersect.
+* **Ethical Foundation:** My Islamic values guide every project — from intention to execution.
+
+> “Technology should serve people — not overwhelm them.”
+
+Every product I build aims to reduce friction, empower people, and bring structural clarity to chaotic systems — whether in healthcare, finance, or urban living.
 
 ---
 
 ## **Professional Experience**
-
-### **Chief Executive Officer & Co-Founder — Shastho Limited**
-
-**Dhaka, Bangladesh | 2021 – Present**
-**Website:** [www.shastho.ai](https://www.shastho.ai)
-
-* Spearheading the creation of a unified digital healthcare platform integrating AI, lab testing, doctor consultation, and corporate health management.
-* Leading partnerships with major hospitals and diagnostic networks including **Evercare**, **BRAC Healthcare**, and **Asgar Ali Hospital**.
-* Overseeing product, engineering, and design strategy for multiple sub-brands:
-  * **Shastho AI** — intelligent health data automation
-  * **Shastho Card** — accessible health membership system
-  * **Shastho Elite** — concierge healthcare plan for professionals
-  * **Shastho Corporate** — tailored employee healthcare packages
-* Built scalable infrastructure on **AWS** and **Node.js**
-* Directed cross-functional teams for design, development, and operations.
-
----
 
 ### **Senior Software Engineer — Obviously AI**
 
 **Remote | 2019 – 2021**
 [theorg.com Profile](https://theorg.com/org/obviously-ai/org-chart/mir-ayman-ali)
 
-* Led full-stack development on a no-code AI analytics platform built on **Vue.js**, **Node.js**, and **Google Cloud Platform**.
-* Refactored Firebase functions for improved scalability and implemented caching, validation, and security hardening.
-* Delivered major releases improving onboarding, data visualization, and automated machine-learning workflows.
-* Collaborated with data scientists to integrate real-time model deployment pipelines.
+* Led full-stack development of a no-code AI analytics platform using **Vue.js**, **Node.js**, and **GCP**.
+* Refactored Firebase functions for scalability, performance, and security.
+* Delivered automated ML pipelines and real-time model deployment features.
 
 ---
 
@@ -49,9 +88,8 @@ With a background spanning AI-driven platforms, healthcare technology, and large
 
 **Remote | 2018 – 2019**
 
-* Developed blockchain-based healthcare data sharing modules using **React**, **Node.js**, and **MongoDB**.
-* Designed and optimized APIs for HIPAA-compliant healthcare transactions.
-* Built front-end dashboards with real-time data streaming.
+* Developed blockchain-based healthcare exchange modules with **React**, **Node.js**, and **MongoDB**.
+* Built secure APIs and dashboards for HIPAA-compliant systems.
 
 ---
 
@@ -59,19 +97,17 @@ With a background spanning AI-driven platforms, healthcare technology, and large
 
 **Remote | 2017 – 2018**
 
-* Built enterprise project-management dashboards with **Vue.js**, **TypeScript**, and **Syncfusion** components.
-* Enhanced UI/UX consistency and modularity across multiple products.
-* Implemented advanced data-grid features and custom visualization layers.
+* Built enterprise-grade project dashboards using **Vue.js**, **TypeScript**, and **Syncfusion**.
+* Improved performance and UI consistency across major releases.
 
 ---
 
 ### **Head of Development — Hypnotic Code**
 
-**Dhaka, Bangladesh | 2016 – 2017**
+**Dhaka | 2016 – 2017**
 
-* Oversaw design and engineering teams delivering digital solutions for local startups.
-* Managed full development lifecycle — from discovery to deployment — using **Laravel**, **Vue**, and **MySQL**.
-* Delivered branding-aligned, technically robust applications for multiple industries.
+* Managed end-to-end project delivery for local startups using **Laravel** and **Vue**.
+* Led design and technical teams across multiple domains.
 
 ---
 
@@ -79,23 +115,22 @@ With a background spanning AI-driven platforms, healthcare technology, and large
 
 **Remote | 2014 – 2016**
 
-* Built scalable web tools for online tutoring and scheduling.
-* Introduced modular architecture and database optimization using **Node.js** and **MongoDB**.
-* Improved platform stability and reduced server costs through refactoring.
+* Developed scalable education platform infrastructure using **Node.js**, **MongoDB**, and **Express**.
+* Reduced hosting costs through modular code and optimized database design.
 
 ---
 
 ## **Technical Expertise**
 
-| **Domain**         | **Technologies & Frameworks**                                      |
-| ------------------ | ------------------------------------------------------------------ |
-| **Languages**      | JavaScript (ES6+), TypeScript, Dart, PHP                           |
-| **Frontend**       | React, Vue 2 & 3, Nuxt, Flutter                                    |
-| **Backend**        | Node.js, Express, Laravel                                          |
-| **Databases**      | MongoDB, PostgreSQL, MySQL, SQLite                                 |
-| **Architecture**   | Event-Sourced Systems, Local-First Apps, Serverless Infrastructure |
-| **Cloud & DevOps** | AWS, GCP, Firebase, Cloudflare, Docker                             |
-| **Other**          | Tailwind CSS, Figma, Adobe Suite, Git, CI/CD pipelines             |
+| **Domain**         | **Technologies & Frameworks**                          |
+| ------------------ | ------------------------------------------------------ |
+| **Languages**      | JavaScript (ES6+), TypeScript, Dart, PHP               |
+| **Frontend**       | React, Vue 2 & 3, Nuxt, Flutter                        |
+| **Backend**        | Node.js, Express, Laravel                              |
+| **Databases**      | MongoDB, PostgreSQL, MySQL, SQLite                     |
+| **Architecture**   | Event-Sourced Systems, Local-First Apps, Scalable SaaS |
+| **Cloud & DevOps** | AWS, GCP, Firebase, Cloudflare, Docker                 |
+| **Other**          | Tailwind CSS, Figma, Adobe Suite, Git, CI/CD Pipelines |
 
 ---
 
@@ -106,25 +141,9 @@ With a background spanning AI-driven platforms, healthcare technology, and large
 
 ---
 
-## **Notable Projects**
+## **Personal Note**
 
-* **Shastho AI Platform** — AI-driven healthcare automation and digital health vault for patient data.
-* **BusinessOS (local-first ERP)** — Offline-ready SaaS desktop platform for Bangladeshi SMEs (built on **Electron + Nuxt + SQLite**).
-* **Shastho Elite App** — Concierge healthcare experience combining Flutter mobile app with Node.js microservices.
+I see myself as a **builder of systems** — technological, social, and ethical.
+My projects often start with curiosity, evolve into structured learning, and end up becoming products that solve real human problems.
 
----
-
-## **Other Ventures**
-
-### **Assent — Luxury Real Estate & Architecture Firm**
-
-A design-led architecture and real-estate brand focused on premium residential and commercial spaces with refined aesthetics and material detail.
-
----
-
-## **Personal Philosophy**
-
-> “Technology should serve human well-being — not complexity.”
-
-Mir Ayman Ali approaches every product with empathy, precision, and a long-term systems perspective, merging design intuition with engineering discipline to build products that truly matter.
-
+I build slowly, intentionally, and precisely — because I believe **good systems outlive trends**.
