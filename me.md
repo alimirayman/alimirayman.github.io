@@ -73,50 +73,78 @@ Every product I build aims to reduce friction, empower people, and bring structu
 
 ## **Professional Experience**
 
-### **Senior Software Engineer — Obviously AI**
+### **Senior Full-stack Engineer — Obviously AI**
 
-**Remote | 2019 – 2021**
-[theorg.com Profile](https://theorg.com/org/obviously-ai/org-chart/mir-ayman-ali)
+**Remote | 2020 – 2025**
 
-* Led full-stack development of a no-code AI analytics platform using **Vue.js**, **Node.js**, and **GCP**.
-* Refactored Firebase functions for scalability, performance, and security.
-* Delivered automated ML pipelines and real-time model deployment features.
-
----
-
-### **Full-Stack Engineer — HSBlox, Inc.**
-
-**Remote | 2018 – 2019**
-
-* Developed blockchain-based healthcare exchange modules with **React**, **Node.js**, and **MongoDB**.
-* Built secure APIs and dashboards for HIPAA-compliant systems.
+* Built and launched a Laravel and Vue platform for clients to manage and run AI models on their datasets
+* Integrated classification, regression, and time series models into a user-friendly interface
+* Created a chatbot interface for clients to query custom LLM models connected to their internal data
+* Engineered seamless data service connectors for uploading, cleaning, and parsing various dataset formats
+* Worked on on-premise deployments of the AI platform for high-security enterprise clients
+* Led the transition from legacy UI to a modular, scalable SPA using Vue components
 
 ---
 
-### **Senior Front-End Developer — ProSymmetry LLC**
+### **Senior JavaScript and Vue Front-end Developer — ProSymmetry LLC**
+
+**Remote | 2021**
+
+* Worked on Jira, HR-like project, and resource management platform
+* Fixed technical debt on the front-end platform and optimized user data analytics and calculations
+* Worked on multi-level resource handling feature with better user interface
+
+---
+
+### **Full-stack Web Developer — HSBlox**
+
+**Remote | 2019**
+
+* Created scalable and secure microservices architecture for handling user requests
+* Created interfaces for several third-party APIs suitable for the existing app structure
+* Oversaw front-end development for new services and upgraded previous front-end architecture
+* Used Azure and Azure CI/CD pipelines for deployment
+
+---
+
+### **Head of Front-end Development — IDEEZA**
 
 **Remote | 2017 – 2018**
 
-* Built enterprise-grade project dashboards using **Vue.js**, **TypeScript**, and **Syncfusion**.
-* Improved performance and UI consistency across major releases.
+* Led a team of five to create a web app where users could create electronics devices using drag and drop in 3D and manufacture them
+* Connected panel builds in three.js with Vue.js with an API
+* Created panel for technicians to generate 3D models in the app
+* Created front-end social media platform in the web app for users to share their created 3D models
 
 ---
 
 ### **Head of Development — Hypnotic Code**
 
-**Dhaka | 2016 – 2017**
+**Dhaka | 2016 – 2018**
 
-* Managed end-to-end project delivery for local startups using **Laravel** and **Vue**.
-* Led design and technical teams across multiple domains.
+* Led team of developers to create websites and web apps for clients
+* Developed web apps for companies on a project basis using Vue, Angular, React for front-end and PHP and Node.js for back-end
+* Used GitHub and deployed web apps to AWS using TravisCI
+
+---
+
+### **Full-stack Web Developer — The Arcade Gacha Events**
+
+**Remote | 2018**
+
+* Created a web app that analyzes users data in real time while the user plays an online game named "SecondLife"
+* Created an API that links the game to the web app, allowing the game to send small amounts of user data
+* Used TDD approach with Jest to write tests
+* Created a scalable structure that could analyze data of a million users in real time
 
 ---
 
 ### **Web Developer — The Profs**
 
-**Remote | 2014 – 2016**
+**Remote | 2015 – 2018**
 
-* Developed scalable education platform infrastructure using **Node.js**, **MongoDB**, and **Express**.
-* Reduced hosting costs through modular code and optimized database design.
+* Upgraded the design, template of the website, and created functional UI changes
+* Created a RESTful API using Node.js that acts as a second layer, connecting all services (GSuite, Mailchimp) to the site
 
 ---
 
