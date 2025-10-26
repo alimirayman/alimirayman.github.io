@@ -83,12 +83,6 @@
             console.warn('Image missing alt text:', img.src);
             img.setAttribute('alt', '');
         });
-
-        // Add contentinfo role to footer
-        const footer = document.querySelector('.footer-note');
-        if (footer && !footer.getAttribute('role')) {
-            footer.setAttribute('role', 'contentinfo');
-        }
     };
 
     // Initialize

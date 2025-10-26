@@ -1,6 +1,6 @@
 /* ============================================================================
    Ayman Ali - Portfolio
-   A minimal, typography-focused design built on golden ratio principles
+   A minimal, typography-focused design with clean 8px spacing system
    ========================================================================= */
 
 * {
@@ -10,10 +10,6 @@
 }
 
 :root {
-    /* Golden Ratio & Spacing */
-    --phi: 1.618033988749895;
-    --phi-inv: 0.618033988749895;
-
     /* Base Units */
     --unit: 8px;
     --space-1: calc(var(--unit) * 1);     /* 8px */
