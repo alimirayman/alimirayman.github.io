@@ -48,20 +48,31 @@
 
         // Intersection Observer for active nav state
         if ('IntersectionObserver' in window && sections.length) {
-            const offset = (header ? header.offsetHeight : 0) + 64;
-            const observer = new IntersectionObserver((entries) => {
-                const visible = entries
-                    .filter((entry) => entry.isIntersecting)
-                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-                if (visible.length) {
-                    activateLink(`#${visible[0].target.id}`);
-                }
-            }, {
-                rootMargin: `-${offset}px 0px -40% 0px`,
-                threshold: [0.2, 0.35, 0.6]
-            });
+            const updateObserver = () => {
+                const offset = header ? header.offsetHeight + 32 : 80;
+                const observer = new IntersectionObserver((entries) => {
+                    const visible = entries
+                        .filter((entry) => entry.isIntersecting)
+                        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+                    if (visible.length) {
+                        activateLink(`#${visible[0].target.id}`);
+                    }
+                }, {
+                    rootMargin: `-${offset}px 0px -50% 0px`,
+                    threshold: [0, 0.1, 0.25, 0.5]
+                });
 
-            sections.forEach((section) => observer.observe(section));
+                sections.forEach((section) => observer.observe(section));
+            };
+
+            updateObserver();
+
+            // Recalculate on resize for mobile/desktop transitions
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(updateObserver, 150);
+            });
         }
     };
 
