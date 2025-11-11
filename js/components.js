@@ -10,6 +10,59 @@
         }
     };
 
+    // Mobile Menu Toggle
+    const handleMobileMenu = () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.top-bar__nav');
+        const body = document.body;
+
+        if (!menuToggle || !nav) return;
+
+        const toggleMenu = (open) => {
+            const isOpen = open !== undefined ? open : !nav.classList.contains('is-open');
+
+            nav.classList.toggle('is-open', isOpen);
+            menuToggle.classList.toggle('is-open', isOpen);
+            body.classList.toggle('menu-open', isOpen);
+            menuToggle.setAttribute('aria-expanded', isOpen);
+
+            // Update button text
+            const buttonText = menuToggle.querySelector('.menu-toggle__text');
+            if (buttonText) {
+                buttonText.textContent = isOpen ? 'Close' : 'Menu';
+            }
+        };
+
+        // Toggle on button click
+        menuToggle.addEventListener('click', () => toggleMenu());
+
+        // Close when clicking navigation links
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Small delay to allow smooth scroll to start
+                setTimeout(() => toggleMenu(false), 100);
+            });
+        });
+
+        // Close when clicking overlay
+        body.addEventListener('click', (e) => {
+            if (body.classList.contains('menu-open') &&
+                !nav.contains(e.target) &&
+                !menuToggle.contains(e.target)) {
+                toggleMenu(false);
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && body.classList.contains('menu-open')) {
+                toggleMenu(false);
+                menuToggle.focus();
+            }
+        });
+    };
+
     // Navigation with smooth scroll
     const handleNavigation = () => {
         const header = document.querySelector('.top-bar');
@@ -99,6 +152,7 @@
     // Initialize
     const init = () => {
         updateCopyrightYear();
+        handleMobileMenu();
         handleNavigation();
         handleExternalLinks();
         enhanceAccessibility();

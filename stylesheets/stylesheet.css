@@ -33,9 +33,10 @@
     --white: #fafafa;
     --gray-100: #e8e8e8;
     --gray-200: #d0d0d0;
-    --gray-400: #8a8a8a;
-    --gray-600: #505050;
+    --gray-400: #6b6b6b;
+    --gray-600: #404040;
     --red: #e63946;
+    --red-dark: #c92a35;
 
     /* Layout */
     --content-width: 960px;
@@ -67,6 +68,17 @@ body {
     color: var(--white);
 }
 
+/* Focus States for Accessibility */
+*:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 4px;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+}
+
 /* ============================================================================
    Typography
    ========================================================================= */
@@ -83,11 +95,15 @@ a {
     color: inherit;
     text-decoration: none;
     border-bottom: 1px solid transparent;
-    transition: border-color 0.15s ease;
+    transition: all 0.2s ease;
 }
 
 a:hover {
     border-bottom-color: var(--red);
+}
+
+a:active {
+    border-bottom-color: var(--red-dark);
 }
 
 .text-mute {
@@ -180,6 +196,79 @@ a:hover {
     border-bottom-color: var(--black);
 }
 
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--black);
+    padding: 8px 12px;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.menu-toggle:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+.menu-toggle:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+}
+
+.menu-toggle__icon {
+    display: inline-block;
+    width: 14px;
+    height: 10px;
+    position: relative;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.menu-toggle__icon::before,
+.menu-toggle__icon::after,
+.menu-toggle__icon span {
+    content: '';
+    display: block;
+    height: 2px;
+    background: currentColor;
+    position: absolute;
+    left: 0;
+    right: 0;
+    transition: all 0.2s ease;
+}
+
+.menu-toggle__icon::before {
+    top: 0;
+}
+
+.menu-toggle__icon span {
+    top: 4px;
+}
+
+.menu-toggle__icon::after {
+    bottom: 0;
+}
+
+.menu-toggle.is-open .menu-toggle__icon::before {
+    top: 4px;
+    transform: rotate(45deg);
+}
+
+.menu-toggle.is-open .menu-toggle__icon span {
+    opacity: 0;
+}
+
+.menu-toggle.is-open .menu-toggle__icon::after {
+    bottom: 4px;
+    transform: rotate(-45deg);
+}
+
 /* ============================================================================
    Main Content
    ========================================================================= */
@@ -216,7 +305,7 @@ a:hover {
 }
 
 .hero-block__kicker {
-    font-size: 11px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--red);
@@ -257,18 +346,21 @@ a:hover {
 }
 
 .chip {
-    font-size: 10px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    padding: 6px 12px;
+    padding: 8px 14px;
     border: 1px solid var(--gray-200);
     color: var(--gray-600);
     font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: default;
 }
 
 .chip:hover {
     border-color: var(--red);
     color: var(--red);
+    transform: translateY(-1px);
 }
 
 .hero-block__links {
@@ -279,19 +371,26 @@ a:hover {
 }
 
 .hero-block__links a {
-    font-size: 11px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    padding: 10px 18px;
+    padding: 12px 20px;
     border: 1px solid var(--black);
     font-weight: 600;
-    transition: all 0.15s ease;
+    transition: all 0.2s ease;
 }
 
 .hero-block__links a:hover {
     background: var(--black);
     color: var(--white);
     border-bottom-color: var(--black);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero-block__links a:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 /* Portrait & Meta */
@@ -315,7 +414,7 @@ a:hover {
 }
 
 .portrait figcaption {
-    font-size: 9px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--gray-400);
@@ -333,6 +432,7 @@ a:hover {
     gap: 4px;
     padding-bottom: var(--space-2);
     border-bottom: 1px solid var(--gray-100);
+    transition: border-color 0.2s ease;
 }
 
 .hero-block__meta div:hover {
@@ -340,7 +440,7 @@ a:hover {
 }
 
 .hero-block__meta dt {
-    font-size: 10px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--gray-400);
@@ -373,7 +473,7 @@ a:hover {
 }
 
 .section-head__eyebrow {
-    font-size: 10px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--gray-400);
@@ -447,6 +547,7 @@ a:hover {
     gap: var(--space-3);
     padding: var(--space-6) 0;
     border-bottom: 1px solid var(--gray-100);
+    transition: all 0.2s ease;
 }
 
 .rail-card:last-child {
@@ -463,7 +564,7 @@ a:hover {
 }
 
 .rail-card__label {
-    font-size: 10px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--red);
@@ -515,6 +616,7 @@ a:hover {
     gap: var(--space-2);
     padding: var(--space-6) 0;
     border-bottom: 1px solid var(--gray-100);
+    transition: all 0.2s ease;
 }
 
 .tile:hover {
@@ -534,7 +636,7 @@ a:hover {
 }
 
 .tile span {
-    font-size: 10px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--red);
@@ -559,6 +661,7 @@ a:hover {
     border-left: 2px solid var(--gray-200);
     border-bottom: 1px solid var(--gray-100);
     position: relative;
+    transition: all 0.2s ease;
 }
 
 .timeline li::before {
@@ -571,6 +674,7 @@ a:hover {
     background: var(--red);
     border: 2px solid var(--white);
     border-radius: 50%;
+    transition: all 0.2s ease;
 }
 
 .timeline li:hover {
@@ -579,6 +683,7 @@ a:hover {
 
 .timeline li:hover::before {
     background: var(--black);
+    transform: scale(1.2);
 }
 
 .timeline li:last-child {
@@ -643,20 +748,25 @@ a:hover {
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    padding: 10px 18px;
+    padding: 12px 20px;
     border: 1px solid var(--black);
     font-weight: 600;
-    transition: all 0.15s ease;
+    transition: all 0.2s ease;
 }
 
 .callout__links a:hover {
     background: var(--black);
     color: var(--white);
     border-bottom-color: var(--black);
+    transform: translateX(4px);
+}
+
+.callout__links a:active {
+    transform: translateX(0);
 }
 
 .callout__availability {
-    font-size: 11px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--gray-400);
@@ -669,7 +779,7 @@ a:hover {
 
 .footer-note {
     text-align: center;
-    font-size: 10px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--gray-400);
@@ -704,6 +814,41 @@ a:hover {
     .top-bar {
         margin-bottom: var(--space-8);
         padding: var(--space-2) 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+    }
+
+    .top-bar__nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: var(--white);
+        border-left: 2px solid var(--black);
+        flex-direction: column;
+        padding: var(--space-8) var(--space-4);
+        gap: var(--space-3);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    .top-bar__nav.is-open {
+        right: 0;
+    }
+
+    .top-bar__nav a {
+        font-size: 14px;
+        padding: var(--space-2) 0;
+        border-bottom: 1px solid var(--gray-100);
+        width: 100%;
     }
 
     .page {
@@ -716,6 +861,30 @@ a:hover {
 
     .signal__quote {
         margin-top: var(--space-4);
+    }
+
+    /* Overlay for mobile menu */
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 999;
+    }
+
+    body.menu-open::after {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    body.menu-open {
+        overflow: hidden;
     }
 }
 
