@@ -130,13 +130,17 @@ a:hover {
     top: 0;
     background: var(--white);
     border-bottom: 1px solid var(--black);
-    padding: var(--space-3) 0 var(--space-2);
+    padding: var(--space-2) 0;
     margin-bottom: var(--space-10);
     z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
 }
 
 .top-bar__brand {
-    margin-bottom: var(--space-2);
+    flex-shrink: 0;
 }
 
 .brand__eyebrow {
@@ -158,6 +162,7 @@ a:hover {
 .top-bar__nav {
     display: flex;
     gap: var(--space-4);
+    flex-shrink: 0;
 }
 
 .top-bar__nav a {
@@ -260,10 +265,12 @@ a:hover {
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    padding: 6px 12px;
+    padding: 5px 12px;
     border: 1px solid var(--gray-200);
     color: var(--gray-600);
     font-weight: 500;
+    border-radius: 2px;
+    transition: all 0.15s ease;
 }
 
 .chip:hover {
@@ -439,22 +446,21 @@ a:hover {
 
 .rail {
     display: grid;
-    gap: var(--space-8);
+    gap: var(--space-4);
 }
 
 .rail-card {
     display: grid;
     gap: var(--space-3);
-    padding: var(--space-6) 0;
-    border-bottom: 1px solid var(--gray-100);
-}
-
-.rail-card:last-child {
-    border-bottom: none;
+    padding: var(--space-5) var(--space-5);
+    border: 1px solid var(--gray-200);
+    border-left: 3px solid var(--gray-200);
+    transition: border-color 0.15s ease;
 }
 
 .rail-card:hover {
-    border-bottom-color: var(--red);
+    border-color: var(--gray-200);
+    border-left-color: var(--red);
 }
 
 .rail-card__header {
@@ -507,30 +513,33 @@ a:hover {
 /* Products Grid */
 .grid {
     display: grid;
-    gap: var(--space-8);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
 }
 
 .tile {
     display: grid;
     gap: var(--space-2);
-    padding: var(--space-6) 0;
-    border-bottom: 1px solid var(--gray-100);
+    padding: var(--space-5);
+    border: 1px solid var(--gray-200);
+    transition: border-color 0.15s ease;
+    align-content: start;
 }
 
 .tile:hover {
-    border-bottom-color: var(--red);
+    border-color: var(--red);
 }
 
 .tile h3 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: -0.01em;
 }
 
 .tile p {
+    font-size: 14px;
     line-height: var(--line-height-relaxed);
     color: var(--gray-600);
-    max-width: 54ch;
 }
 
 .tile span {
@@ -603,8 +612,7 @@ a:hover {
 
 .callout {
     display: grid;
-    grid-template-columns: 1.618fr 1fr;
-    gap: var(--space-10);
+    gap: var(--space-6);
     padding: var(--space-8);
     border: 2px solid var(--black);
     margin-top: var(--space-6);
@@ -623,27 +631,30 @@ a:hover {
 
 .callout__summary {
     color: var(--gray-600);
-    max-width: 52ch;
+    max-width: 66ch;
     line-height: var(--line-height-relaxed);
 }
 
 .callout__footer {
     display: grid;
     gap: var(--space-3);
+    border-top: 1px solid var(--gray-100);
+    padding-top: var(--space-5);
 }
 
 .callout__links {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: var(--space-2);
-    align-items: start;
+    align-items: center;
 }
 
 .callout__links a {
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    padding: 10px 18px;
+    padding: 8px 16px;
     border: 1px solid var(--black);
     font-weight: 600;
     transition: all 0.15s ease;
@@ -688,8 +699,7 @@ a:hover {
     }
 
     .hero-block,
-    .signal,
-    .callout {
+    .signal {
         grid-template-columns: 1fr;
     }
 
@@ -704,6 +714,8 @@ a:hover {
     .top-bar {
         margin-bottom: var(--space-8);
         padding: var(--space-2) 0;
+        flex-wrap: wrap;
+        gap: var(--space-2);
     }
 
     .page {
@@ -717,11 +729,19 @@ a:hover {
     .signal__quote {
         margin-top: var(--space-4);
     }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 520px) {
     .hero-block__title {
         font-size: 36px;
+    }
+
+    .top-bar__brand {
+        display: none;
     }
 
     .top-bar__nav {
