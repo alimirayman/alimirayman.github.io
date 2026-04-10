@@ -1,78 +1,51 @@
 # Mir Ayman Ali - Portfolio
 
-Clean, minimal portfolio with retro monospaced typography.
+Static single-page portfolio for [aymana.li](https://aymana.li), organized for direct hosting on GitHub Pages or any other static file server.
 
-🌐 **Live:** [aymana.li](https://aymana.li)
+## Structure
 
-## Design Philosophy
-
-A brutalist, user-friendly portfolio that combines:
-- **Retro monospaced fonts** (SUSE & DotGothic16)
-- **Minimal black & white design** with clean layout
-- **Easy navigation** - simple, clear sections
-- **Readable typography** - accessible for everyone
-- **Fast & lightweight** - minimal CSS, no JS dependencies
-
-## Features
-
-- Sticky navigation bar
-- Smooth scroll to sections
-- Responsive grid layouts
-- Clean typography with monospaced fonts
-- Black/white alternating sections
-- Hover effects on interactive elements
-- Mobile-optimized
-
-## Sections
-
-1. **Hero** - Name, photo, and title
-2. **About** - Professional summary and education
-3. **Experience** - Work history timeline
-4. **Skills** - Technical expertise grid
-5. **Projects** - Notable projects showcase
-6. **Contact** - Social links and contact info
-
-## Technical Stack
-
-- **HTML5** - Semantic markup
-- **CSS3** - ~360 lines of clean CSS
-- **Fonts** - SUSE & DotGothic16 from Google Fonts
-- **No JavaScript** - Pure HTML/CSS
-- **SEO** - Meta tags and schema.org
-
-## Design System
-
-**Colors:**
-```css
---black: #000
---white: #fff
---accent: #00ff41
+```text
+.
+├── assets
+│   ├── images
+│   │   ├── icons
+│   │   └── portraits
+│   ├── scripts
+│   │   ├── main.js
+│   │   └── modules
+│   └── styles
+│       └── main.css
+├── index.html
+├── robots.txt
+├── sitemap.xml
+├── site.webmanifest
+└── favicon and PWA icons
 ```
 
-**Typography:**
-- Primary: SUSE (monospaced, retro)
-- Secondary: DotGothic16 (fallback)
-- Sizes: 14px - 48px (responsive)
+## Editing Guide
 
-**Layout:**
-- Max width: 1000px
-- Spacing: 20px - 80px
-- Borders: 2px - 3px solid
-
-## File Structure
-
-```
-├── index.html              # Main HTML
-├── stylesheets/
-│   └── stylesheet.css      # All styles (~360 lines)
-└── img/
-    └── dot-art.png         # Profile image
-```
+- Keep page content, SEO metadata, and structured data in `index.html`.
+- Keep visual system changes in `assets/styles/main.css`.
+- Keep progressive enhancement logic in `assets/scripts/modules/`.
+- Keep deploy-root files such as `robots.txt`, `sitemap.xml`, `site.webmanifest`, and the favicon assets at the repository root so they are served from `/`.
 
 ## Development
 
-Just open `index.html` - no build process needed.
+No build step is required.
+
+Run a local server from the repository root:
+
+```bash
+python3 -m http.server 4173
+```
+
+Then open `http://localhost:4173`.
+
+## Notes
+
+- The site is intentionally static and SEO-friendly: primary content remains in HTML.
+- JavaScript is limited to navigation state, accessibility checks, external-link hardening, and the footer year.
 
 ## License
 
-© 2025 Mir Ayman Ali. All rights reserved.
+© 2026 Mir Ayman Ali. All rights reserved.
