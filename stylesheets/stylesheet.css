@@ -24,6 +24,7 @@
 
     /* Typography */
     --font-mono: 'SUSE Mono', 'SF Mono', 'Courier New', monospace;
+    --font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
     --line-height-tight: 1.2;
     --line-height-normal: 1.5;
     --line-height-relaxed: 1.618;
@@ -51,6 +52,8 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -239,6 +242,7 @@ a:hover {
     max-width: 38ch;
     font-weight: 500;
     color: var(--black);
+    font-family: var(--font-body);
 }
 
 .hero-block__body {
@@ -247,6 +251,7 @@ a:hover {
     color: var(--gray-600);
     max-width: 58ch;
     margin-top: var(--space-3);
+    font-family: var(--font-body);
 }
 
 .hero-block__chips {
@@ -391,6 +396,7 @@ a:hover {
     color: var(--gray-600);
     max-width: 58ch;
     line-height: var(--line-height-relaxed);
+    font-family: var(--font-body);
 }
 
 /* ============================================================================
@@ -415,6 +421,7 @@ a:hover {
     padding-left: var(--space-4);
     border-left: 2px solid var(--red);
     padding-bottom: var(--space-4);
+    font-family: var(--font-body);
 }
 
 .signal__list li strong {
@@ -462,6 +469,49 @@ a:hover {
     gap: var(--space-1);
 }
 
+.rail-card__title-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.rail-card__badges {
+    display: flex;
+    gap: var(--space-1);
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 3px 8px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    white-space: nowrap;
+}
+
+.badge--active {
+    background: var(--black);
+    color: var(--white);
+}
+
+.badge--building {
+    background: var(--gray-200);
+    color: var(--gray-600);
+}
+
+.badge--colead {
+    background: var(--gray-200);
+    color: var(--gray-600);
+}
+
+.badge--domain {
+    border: 1px solid var(--gray-200);
+    color: var(--gray-400);
+}
+
 .rail-card__label {
     font-size: 10px;
     text-transform: uppercase;
@@ -484,12 +534,14 @@ a:hover {
     font-weight: 500;
     max-width: 64ch;
     margin-bottom: var(--space-3);
+    font-family: var(--font-body);
 }
 
 .rail-card p {
     max-width: 66ch;
     line-height: var(--line-height-relaxed);
     color: var(--gray-600);
+    font-family: var(--font-body);
 }
 
 .rail-card ul {
@@ -504,6 +556,7 @@ a:hover {
     padding-left: var(--space-4);
     font-size: 14px;
     line-height: var(--line-height-normal);
+    font-family: var(--font-body);
 }
 
 .rail-card ul li::before {
@@ -555,6 +608,7 @@ a:hover {
     font-size: 14px;
     line-height: var(--line-height-normal);
     color: var(--gray-600);
+    font-family: var(--font-body);
 }
 
 /* ============================================================================
@@ -650,22 +704,25 @@ a:hover {
 /* Products Grid */
 .grid {
     display: grid;
-    gap: var(--space-8);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
 }
 
 .tile {
     display: grid;
     gap: var(--space-2);
-    padding: var(--space-6) 0;
-    border-bottom: 1px solid var(--gray-100);
+    padding: var(--space-5);
+    border: 2px solid var(--gray-200);
+    transition: border-color 0.15s ease;
+    align-content: start;
 }
 
 .tile:hover {
-    border-bottom-color: var(--red);
+    border-color: var(--red);
 }
 
 .tile h3 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: -0.01em;
 }
@@ -673,7 +730,8 @@ a:hover {
 .tile p {
     line-height: var(--line-height-relaxed);
     color: var(--gray-600);
-    max-width: 54ch;
+    font-family: var(--font-body);
+    font-size: 14px;
 }
 
 .tile span {
@@ -832,6 +890,7 @@ a:hover {
     line-height: var(--line-height-relaxed);
     color: var(--gray-600);
     max-width: 66ch;
+    font-family: var(--font-body);
 }
 
 /* ============================================================================
@@ -862,6 +921,7 @@ a:hover {
     color: var(--gray-600);
     max-width: 52ch;
     line-height: var(--line-height-relaxed);
+    font-family: var(--font-body);
 }
 
 .callout__footer {
@@ -870,10 +930,9 @@ a:hover {
 }
 
 .callout__links {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-2);
-    align-items: start;
 }
 
 .callout__links a {
@@ -884,6 +943,7 @@ a:hover {
     border: 1px solid var(--black);
     font-weight: 600;
     transition: all 0.15s ease;
+    text-align: center;
 }
 
 .callout__links a:hover {
