@@ -8,10 +8,11 @@
         content="Mir Ayman Ali — Systems architect, entrepreneur, and product builder passionate about solving real problems through technology and design. Founder of Shastho Limited."
     >
     <meta name="author" content="Mir Ayman Ali">
-    <meta name="theme-color" content="#0f0f0f">
+    <meta name="theme-color" content="#f2efe8">
     <meta name="google-site-verification" content="rwGrpa8w-RpfAHLnsToAkpuVZK8IA7gypVCRCpyNfO0">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
@@ -46,10 +47,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         rel="preload"
-        href="https://fonts.googleapis.com/css2?family=SUSE+Mono:wght@400;500;600;700;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=SUSE+Mono:wght@400;500;600;700;800&display=swap"
         as="style"
     >
-    <link href="https://fonts.googleapis.com/css2?family=SUSE+Mono:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=SUSE+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/styles/main.css">
 </head>
 <body>
@@ -57,6 +58,12 @@
 
     <div class="site-shell">
         <header class="top-bar">
+            <a class="top-bar__brand" href="#about" aria-label="Jump to introduction">
+                <span class="top-bar__brand-copy">
+                    <span class="top-bar__brand-name">Mir Ayman Ali</span>
+                    <span class="top-bar__brand-note">Founder / Systems Architect / Product Builder</span>
+                </span>
+            </a>
             <nav class="top-bar__nav" aria-label="Primary navigation">
                 <a href="#about" data-nav>About</a>
                 <a href="#signal" data-nav>Philosophy</a>
@@ -68,10 +75,12 @@
         </header>
 
         <main class="page" id="main">
-            <section id="about" class="slice">
+            <section id="about" class="slice slice--hero">
                 <div class="slice__inner hero-block">
                     <div class="hero-block__primary">
-                        <span class="hero-block__kicker">Founder & CEO, Shastho Limited</span>
+                        <div class="hero-block__intro">
+                            <span class="hero-block__kicker">Founder & CEO, Shastho Limited</span>
+                        </div>
                         <h1 class="hero-block__title">
                             <span class="text-mute">Mir</span>
                             <span>Ayman</span>
@@ -88,6 +97,20 @@
                             My ventures reflect that mission: building products that make essential services
                             simple, accessible, and human.
                         </p>
+                        <div class="hero-block__metrics" aria-label="Highlights">
+                            <div class="hero-metric">
+                                <span class="hero-metric__value">10+</span>
+                                <span class="hero-metric__label">years building products</span>
+                            </div>
+                            <div class="hero-metric">
+                                <span class="hero-metric__value">3</span>
+                                <span class="hero-metric__label">ventures across health, finance, design</span>
+                            </div>
+                            <div class="hero-metric">
+                                <span class="hero-metric__value">Dhaka</span>
+                                <span class="hero-metric__label">operating from Bangladesh, building globally</span>
+                            </div>
+                        </div>
                         <div class="hero-block__chips" aria-label="Focus areas">
                             <span class="chip">System Thinking</span>
                             <span class="chip">Design Precision</span>
@@ -95,8 +118,8 @@
                             <span class="chip">Ethical Foundation</span>
                         </div>
                         <div class="hero-block__links" aria-label="Primary links">
-                            <a class="button-link" href="mailto:ayman@shastho.ai">Email</a>
-                            <a class="button-link" href="https://shastho.ai" target="_blank" rel="noopener">Shastho</a>
+                            <a class="button-link button-link--primary" href="mailto:ayman@shastho.ai">Email</a>
+                            <a class="button-link button-link--primary" href="https://shastho.ai" target="_blank" rel="noopener">Shastho</a>
                             <a class="button-link" href="https://www.linkedin.com/in/alimirayman/" target="_blank" rel="noopener">LinkedIn</a>
                             <a class="button-link" href="https://github.com/alimirayman" target="_blank" rel="noopener">GitHub</a>
                             <a class="button-link" href="https://twitter.com/alimirayman" target="_blank" rel="noopener">Twitter</a>
@@ -105,11 +128,13 @@
 
                     <aside class="hero-block__aside">
                         <figure class="portrait">
-                            <img
-                                src="./assets/images/portraits/dot-art-3.png"
-                                alt="Dot matrix portrait of Mir Ayman Ali"
-                                decoding="async"
-                            >
+                            <div class="portrait__frame">
+                                <img
+                                    src="./assets/images/portraits/dot-art-3.png"
+                                    alt="Dot matrix portrait of Mir Ayman Ali"
+                                    decoding="async"
+                                >
+                            </div>
                             <figcaption>dot-matrix · v2025.10.25 · Dhaka</figcaption>
                         </figure>
                         <dl class="hero-block__meta">
@@ -134,7 +159,7 @@
                 </div>
             </section>
 
-            <section id="signal" class="slice">
+            <section id="signal" class="slice slice--philosophy">
                 <div class="slice__inner">
                     <header class="section-head">
                         <span class="section-head__index" aria-hidden="true">01</span>
@@ -171,7 +196,7 @@
                 </div>
             </section>
 
-            <section id="ventures" class="slice">
+            <section id="ventures" class="slice slice--ventures">
                 <div class="slice__inner">
                     <header class="section-head">
                         <span class="section-head__index" aria-hidden="true">02</span>
@@ -179,23 +204,33 @@
                         <h2 class="section-head__title">What I'm building</h2>
                         <p class="section-head__summary">Companies and side projects I've founded and co-lead</p>
                     </header>
-                    <div class="rail">
-                        <article class="rail-card">
-                            <header class="rail-card__header">
-                                <span class="rail-card__label">2021 - Present · Founder & CEO</span>
+                    <div class="venture-grid">
+                        <article class="venture-card venture-card--featured">
+                            <div class="venture-card__meta-row">
+                                <span class="venture-card__era">2021 - Present</span>
+                                <span class="venture-card__status">Operating</span>
+                            </div>
+                            <span class="venture-card__role">Founder & CEO - Healthcare infrastructure</span>
+                            <header class="venture-card__header">
                                 <h3>Shastho Limited</h3>
                             </header>
-                            <p class="rail-card__lede">
+                            <p class="venture-card__lede">
                                 Bangladesh's healthcare system faces deep accessibility and infrastructure challenges
                                 - nearly <strong>65% of people with medical needs never reach formal healthcare facilities</strong>,
                                 let alone digital platforms. That reality led me to found Shastho Limited to digitize
                                 and connect healthcare through technology.
                             </p>
-                            <p>
+                            <p class="venture-card__summary">
                                 Building Bangladesh's first holistic digital health ecosystem integrating AI-driven
                                 automation, lab networks, doctor coordination, and corporate health programs.
                             </p>
-                            <ul>
+                            <ul class="venture-card__tags" aria-label="Shastho focus areas">
+                                <li>Healthcare</li>
+                                <li>AI Ops</li>
+                                <li>Infrastructure</li>
+                                <li>Partnerships</li>
+                            </ul>
+                            <ul class="venture-card__points">
                                 <li><strong>Strategic Partnerships:</strong> Collaborating with leading healthcare providers including Samorita Hospital, BRAC Healthcare, and Aichi Healthcare Group.</li>
                                 <li><strong>Product Suite:</strong> Shastho AI (automated health intelligence), Shastho Card (affordable membership access), Shastho Elite (concierge-style care), Shastho Corporate (employee wellness programs).</li>
                                 <li><strong>Architecture:</strong> Built on AWS and Node.js with event-sourced local-first architecture for data integrity and real-time synchronization.</li>
@@ -203,42 +238,60 @@
                             </ul>
                         </article>
 
-                        <article class="rail-card">
-                            <header class="rail-card__header">
-                                <span class="rail-card__label">2025 - Present · Side Project</span>
+                        <article class="venture-card">
+                            <div class="venture-card__meta-row">
+                                <span class="venture-card__era">2025 - Present</span>
+                                <span class="venture-card__status">Building</span>
+                            </div>
+                            <span class="venture-card__role">Side Project - Local-first ERP</span>
+                            <header class="venture-card__header">
                                 <h3>BusinessOS</h3>
                             </header>
-                            <p class="rail-card__lede">
+                            <p class="venture-card__lede">
                                 Most small businesses in Bangladesh track finances on paper or WhatsApp. That
                                 friction is expensive - in errors, wasted time, and decisions made without clear data.
                             </p>
-                            <p>
+                            <p class="venture-card__summary">
                                 As a side project, I'm building <strong>BusinessOS</strong> - a local-first ERP and
                                 desktop SaaS that makes business finance simple and affordable for entrepreneurs and SMEs.
                             </p>
-                            <ul>
+                            <ul class="venture-card__tags" aria-label="BusinessOS focus areas">
+                                <li>ERP</li>
+                                <li>Desktop SaaS</li>
+                                <li>Offline-first</li>
+                            </ul>
+                            <ul class="venture-card__points">
                                 <li><strong>Technology Stack:</strong> Built on an offline-first architecture using Electron, Nuxt, and SQLite with event-sourced data models.</li>
                                 <li><strong>Key Advantage:</strong> Small businesses can operate reliably without needing constant internet connectivity - critical in markets with unreliable infrastructure.</li>
                                 <li><strong>Vision:</strong> Democratizing business finance tools that were previously only accessible to large enterprises.</li>
                             </ul>
                         </article>
 
-                        <article class="rail-card">
-                            <header class="rail-card__header">
-                                <span class="rail-card__label">2025 - Present · Co-lead</span>
+                        <article class="venture-card">
+                            <div class="venture-card__meta-row">
+                                <span class="venture-card__era">2025 - Present</span>
+                                <span class="venture-card__status">Launching</span>
+                            </div>
+                            <span class="venture-card__role">Co-lead - Furniture & Interiors</span>
+                            <header class="venture-card__header">
                                 <h3>Noyae</h3>
                             </header>
-                            <p class="rail-card__lede">
+                            <p class="venture-card__lede">
                                 Design and craft are the other side of what I love - merging aesthetics,
                                 function, and quiet luxury.
                             </p>
-                            <p>
+                            <p class="venture-card__summary">
                                 Through <strong>Noyae</strong>, I co-lead with my wife, <strong>Principal Architect
                                 Nazia Shafinaz</strong>, a brand built around made-to-order furniture and full-service
                                 interior design for Bangladeshi homes and commercial spaces. Tagline:
                                 <em>"elegance in essentials."</em>
                             </p>
-                            <ul>
+                            <ul class="venture-card__tags" aria-label="Noyae focus areas">
+                                <li>Furniture</li>
+                                <li>Interiors</li>
+                                <li>Made-to-order</li>
+                            </ul>
+                            <ul class="venture-card__points">
                                 <li><strong>Product:</strong> Made-to-order furniture - sofas, tables, storage - with configurable options sold via an online catalog.</li>
                                 <li><strong>Services:</strong> End-to-end interior design and design-build projects from space planning to installation, typically 6-8 week timelines.</li>
                                 <li><strong>Market:</strong> Premium, curated interiors for Bangladeshi homeowners and commercial clients who value thoughtful design.</li>
@@ -248,7 +301,7 @@
                 </div>
             </section>
 
-            <section id="now" class="slice">
+            <section id="now" class="slice slice--focus">
                 <div class="slice__inner">
                     <header class="section-head">
                         <span class="section-head__index" aria-hidden="true">03</span>
@@ -258,21 +311,25 @@
                     </header>
                     <div class="focus-grid">
                         <article class="focus-card">
+                            <span class="focus-card__state">Scaling</span>
                             <span class="focus-card__label">Shastho Limited</span>
                             <h3>Scaling Healthcare Infrastructure</h3>
                             <p>Launching Shastho Card nationwide partnership program with 50+ diagnostic centers. Building AI-powered health recommendation engine and corporate wellness dashboard for enterprise clients.</p>
                         </article>
                         <article class="focus-card">
+                            <span class="focus-card__state">Architecting</span>
                             <span class="focus-card__label">BusinessOS</span>
                             <h3>Local-First Architecture</h3>
                             <p>Architecting BusinessOS v2 with improved event sourcing and conflict resolution. Designing desktop-first UI for financial reporting and inventory management modules.</p>
                         </article>
                         <article class="focus-card">
+                            <span class="focus-card__state">Designing</span>
                             <span class="focus-card__label">Noyae</span>
                             <h3>Furniture & Interior Design</h3>
                             <p>Building out the made-to-order furniture catalog and online ordering experience. Developing the design-build service workflow for residential and commercial interior projects across Dhaka.</p>
                         </article>
                         <article class="focus-card">
+                            <span class="focus-card__state">Studying</span>
                             <span class="focus-card__label">Learning</span>
                             <h3>Exploring System Design</h3>
                             <p>Deep dive into distributed systems patterns, CRDT implementations for offline-first apps, and healthcare interoperability standards (HL7 FHIR). Currently reading about event-driven architectures and domain-driven design.</p>
@@ -281,7 +338,7 @@
                 </div>
             </section>
 
-            <section id="tools" class="slice">
+            <section id="tools" class="slice slice--ink">
                 <div class="slice__inner">
                     <header class="section-head">
                         <span class="section-head__index" aria-hidden="true">04</span>
@@ -291,14 +348,17 @@
                     </header>
                     <div class="grid">
                         <article class="tile">
+                            <span class="tile__label">Build</span>
                             <h3>Full-Stack Development</h3>
                             <p>JavaScript/TypeScript ecosystems with Vue, React, Node.js. PHP and Laravel for backend systems. Mobile development with Flutter.</p>
                         </article>
                         <article class="tile">
+                            <span class="tile__label">Architect</span>
                             <h3>System Architecture</h3>
                             <p>Event-sourced systems, local-first applications, scalable SaaS platforms. Experience with microservices and distributed systems.</p>
                         </article>
                         <article class="tile">
+                            <span class="tile__label">Operate</span>
                             <h3>Infrastructure & DevOps</h3>
                             <p>AWS, GCP, Firebase, Azure. Docker containerization, CI/CD pipelines, serverless deployments.</p>
                         </article>
@@ -306,7 +366,7 @@
                 </div>
             </section>
 
-            <section id="timeline" class="slice">
+            <section id="timeline" class="slice slice--timeline">
                 <div class="slice__inner">
                     <header class="section-head">
                         <span class="section-head__index" aria-hidden="true">05</span>
@@ -375,7 +435,7 @@
                 </div>
             </section>
 
-            <section id="contact" class="slice">
+            <section id="contact" class="slice slice--contact">
                 <div class="slice__inner">
                     <header class="section-head">
                         <span class="section-head__index" aria-hidden="true">06</span>
@@ -385,16 +445,23 @@
                     </header>
                     <div class="callout">
                         <div class="callout__body">
+                            <span class="callout__eyebrow">Building something difficult and worth doing?</span>
                             <p class="callout__lede">Want to work together?</p>
                             <p class="callout__summary">
                                 I'm interested in projects that solve real problems and create meaningful impact.
                                 If you're building something that aligns with my values and expertise, let's connect.
                             </p>
+                            <ul class="callout__topics" aria-label="Conversation topics">
+                                <li>Healthcare systems</li>
+                                <li>Finance tooling</li>
+                                <li>Design-led products</li>
+                                <li>Founder collaborations</li>
+                            </ul>
                         </div>
                         <div class="callout__footer">
                             <div class="callout__links">
-                                <a class="button-link" href="mailto:ayman@shastho.ai">Email</a>
-                                <a class="button-link" href="https://shastho.ai" target="_blank" rel="noopener">Shastho</a>
+                                <a class="button-link button-link--primary" href="mailto:ayman@shastho.ai">Email</a>
+                                <a class="button-link button-link--primary" href="https://shastho.ai" target="_blank" rel="noopener">Shastho</a>
                                 <a class="button-link" href="https://www.linkedin.com/in/alimirayman/" target="_blank" rel="noopener">LinkedIn</a>
                                 <a class="button-link" href="https://github.com/alimirayman" target="_blank" rel="noopener">GitHub</a>
                                 <a class="button-link" href="https://twitter.com/alimirayman" target="_blank" rel="noopener">Twitter</a>
