@@ -175,7 +175,7 @@ strong {
 }
 
 .top-bar__nav a {
-    padding-bottom: 2px;
+    padding: 6px 4px 4px;
     border-bottom: 1px solid transparent;
     font-family: var(--font-mono);
     font-size: 11px;
@@ -227,10 +227,22 @@ strong {
     align-items: start;
 }
 
-.hero-block__primary,
+.hero-block__primary {
+    display: grid;
+    gap: var(--space-3);
+}
+
 .hero-block__aside {
     display: grid;
     gap: var(--space-4);
+}
+
+.hero-block__metrics {
+    margin-top: var(--space-2);
+}
+
+.hero-block__links {
+    margin-top: var(--space-1);
 }
 
 .hero-block__intro {
@@ -381,6 +393,11 @@ strong {
     width: 100%;
     height: auto;
     filter: grayscale(100%) contrast(1.08);
+    transition: filter 400ms ease;
+}
+
+.portrait:hover img {
+    filter: grayscale(0%) contrast(1.02);
 }
 
 .portrait figcaption {
@@ -506,6 +523,11 @@ strong {
     padding: 22px;
     border: 1px solid var(--line);
     background: var(--surface);
+    transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.venture-card:hover {
+    border-color: var(--ink);
 }
 
 .venture-card--featured {
@@ -601,6 +623,11 @@ strong {
     padding: 20px;
     border: 1px solid var(--line);
     background: var(--surface);
+    transition: border-color 140ms ease;
+}
+
+.focus-card:hover {
+    border-color: var(--ink);
 }
 
 .focus-card__state {
@@ -657,6 +684,11 @@ strong {
     padding: 20px;
     border: 1px solid #4b4540;
     background: transparent;
+    transition: border-color 140ms ease;
+}
+
+.tile:hover {
+    border-color: var(--bg);
 }
 
 .timeline {
@@ -672,6 +704,17 @@ strong {
     padding: 20px;
     border: 1px solid var(--line);
     background: var(--surface);
+    transition: border-color 140ms ease;
+}
+
+.timeline li:hover {
+    border-color: var(--ink);
+}
+
+.timeline li:first-child {
+    grid-column: 1 / -1;
+    border-width: 2px;
+    border-color: var(--ink);
 }
 
 .timeline__date {
@@ -757,6 +800,11 @@ strong {
 }
 
 .footer-note {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-top: var(--space-10);
     padding-top: var(--space-4);
     border-top: 1px solid var(--line);
@@ -765,6 +813,10 @@ strong {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--ink-muted);
+}
+
+.footer-note__detail {
+    color: var(--line);
 }
 
 @media (max-width: 980px) {
