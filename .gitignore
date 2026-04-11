@@ -1,8 +1,9 @@
 .DS_Store
-
+node_modules/
 # Internal / private — do not expose publicly
 CLAUDE.md
 STYLEGUIDE.md
 me.md
 params.json
 .claude/
+.superpowers
