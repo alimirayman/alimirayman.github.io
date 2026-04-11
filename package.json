@@ -1,0 +1,22 @@
+{
+  "name": "alimirayman.github.io",
+  "version": "1.0.0",
+  "description": "Clean, minimal portfolio with retro monospaced typography.",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -p 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alimirayman/alimirayman.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alimirayman/alimirayman.github.io/issues"
+  },
+  "homepage": "https://github.com/alimirayman/alimirayman.github.io#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
