@@ -41,6 +41,8 @@ python3 -m http.server 4173
 
 Then open `http://localhost:4173`.
 
+After changing `main.css` or any script, run `npm run build` before committing. Pages ask for the CSS and JS with a hash of their contents (`main.css?v=…`), so visitors get the new files at once instead of a cached copy that doesn't match the page. The build updates those hashes on every page and in `main.js`'s imports.
+
 ## Adding an article
 
 Articles are Markdown files in `content/articles/`. One command turns them into pages at `/articles/<slug>/`.

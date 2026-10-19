@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server -c-1 -p 8000",
+    "build": "node scripts/build-articles.mjs",
     "articles": "node scripts/build-articles.mjs"
   },
   "repository": {
