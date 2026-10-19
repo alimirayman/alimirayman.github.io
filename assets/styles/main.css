@@ -37,8 +37,11 @@
     --blue-deep: #1d3283;
     --blue-light: #9db0f0;
 
+    /* One grid for the whole page: a main column and a side column, same tracks everywhere.
+       At the full 1160px sheet that is a 696px main column and a 400px side column. */
     --sheet: 1160px;
-    --note: 280px;
+    --columns: minmax(0, 1.74fr) minmax(0, 1fr);
+    --column-gap: var(--space-8);
     --transition: 150ms ease;
 }
 
@@ -288,8 +291,8 @@ main:focus {
 
 .hero__grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: var(--space-6);
+    grid-template-columns: var(--columns);
+    column-gap: var(--column-gap);
     align-items: end;
 }
 
@@ -302,8 +305,6 @@ main:focus {
 .hero__kicker,
 .section__index,
 .spec dt,
-.focus__state,
-.skill__label,
 .building__label,
 .metrics dt,
 .contact__eyebrow,
@@ -356,8 +357,10 @@ main:focus {
     margin-top: var(--space-1);
 }
 
+/* The portrait starts on the side-column line and runs out to the window's right edge. */
 .hero__portrait {
     align-self: end;
+    margin-right: calc((min(100vw - 2 * var(--space-4), var(--sheet)) - 100vw) / 2);
 }
 
 .hero__portrait img {
@@ -376,9 +379,9 @@ main:focus {
 
 .hero__foot {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: var(--space-6);
-    align-items: end;
+    grid-template-columns: var(--columns);
+    column-gap: var(--column-gap);
+    align-items: start;
     padding: var(--space-4) 0 var(--space-5);
     border-top: 1px solid var(--night-line);
 }
@@ -413,6 +416,7 @@ main:focus {
 .building__label {
     margin-bottom: var(--space-2);
     font-size: 11px;
+    line-height: 1.5;
     color: var(--on-night-soft);
 }
 
@@ -420,7 +424,8 @@ main:focus {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--space-2) var(--space-5);
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-3);
 }
 
 .building__logos a {
@@ -434,7 +439,7 @@ main:focus {
 
 .building__logos img {
     width: auto;
-    height: 26px;
+    height: 22px;
     filter: brightness(0) invert(1);
 }
 
@@ -499,13 +504,18 @@ main:focus {
 
 .entry {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) var(--note);
-    column-gap: var(--space-9);
+    grid-template-columns: var(--columns);
+    column-gap: var(--column-gap);
     align-items: start;
 }
 
 .entry__main {
-    max-width: 36em;
+    grid-column: 1;
+    min-width: 0;
+}
+
+.entry__note {
+    grid-column: 2;
 }
 
 .entry__main > * + * {
@@ -545,8 +555,10 @@ main:focus {
     letter-spacing: -0.02em;
 }
 
+/* The number sits on its own line so the title and its text share one left edge. */
 .principle__num {
-    margin-right: var(--space-2);
+    display: block;
+    margin-bottom: 6px;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.04em;
@@ -627,7 +639,6 @@ main:focus {
 }
 
 .pullquote {
-    max-width: 22em;
     margin-top: var(--space-8);
     padding-left: var(--space-3);
     border-left: 2px solid var(--blue);
@@ -729,43 +740,46 @@ main:focus {
     vertical-align: 2px;
 }
 
-/* Now */
+/* Rows: Now and Skills, text in the main column and the label in the side column. */
 
-.focus {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-2);
+.row {
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--rule);
 }
 
-.focus__item {
-    display: grid;
-    align-content: start;
-    gap: var(--space-1);
-    padding: var(--space-3);
-    border: 1px solid var(--rule);
-    background: var(--paper-raised);
+.row:first-child {
+    border-top: 1px solid var(--graphite);
 }
 
-.focus__state {
-    color: var(--graphite-soft);
-}
-
-.focus__state span {
-    margin-right: 6px;
-    color: var(--blue);
-}
-
-.focus__item h3 {
+.row__title {
     font-size: 22px;
     letter-spacing: -0.02em;
 }
 
-.focus__item p:last-child {
-    font-size: 17px;
+.row .entry__main > p {
+    font-size: 18px;
     color: var(--graphite-soft);
 }
 
-/* Writing lists (home page and /writing/) */
+.entry__main > .row__title + p {
+    margin-top: var(--space-1);
+}
+
+.row__label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--graphite-soft);
+}
+
+.row__label span {
+    display: block;
+    color: var(--blue);
+}
+
+/* Article lists (home page and /articles/): text in the main column, the cover in the side column. */
 
 .entry--article {
     padding: var(--space-3) 0;
@@ -800,12 +814,38 @@ main:focus {
     margin-top: var(--space-1);
 }
 
-.when__sep {
-    display: none;
-}
-
 .when {
     font-variant-numeric: tabular-nums;
+}
+
+.entry__main > .when {
+    margin-top: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--blue);
+}
+
+.article__thumb {
+    padding-top: 6px;
+}
+
+.article__cover img,
+.essay__cover img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 1px solid var(--rule);
+    background: var(--paper-raised);
+}
+
+.article__cover {
+    display: block;
+    transition: opacity var(--transition);
+}
+
+.entry--article:hover .article__cover {
+    opacity: 0.88;
 }
 
 .more-link {
@@ -816,36 +856,6 @@ main:focus {
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-}
-
-/* Skills */
-
-.skills {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-4);
-}
-
-.skill {
-    display: grid;
-    align-content: start;
-    gap: var(--space-1);
-    padding-top: var(--space-2);
-    border-top: 2px solid var(--graphite);
-}
-
-.skill__label {
-    color: var(--blue);
-}
-
-.skill h3 {
-    font-size: 21px;
-    letter-spacing: -0.02em;
-}
-
-.skill p:last-child {
-    font-size: 17px;
-    color: var(--graphite-soft);
 }
 
 /* Experience */
@@ -981,9 +991,9 @@ main:focus {
     font-size: 12px;
 }
 
-/* Essays (writing/<slug>/) */
+/* Article pages (articles/<slug>/): title, cover, and body in the main column; details in the side column. */
 
-.page--writing main {
+.page--articles main {
     padding-bottom: var(--space-12);
 }
 
@@ -992,21 +1002,17 @@ main:focus {
 }
 
 .essay__head {
-    display: grid;
-    gap: var(--space-2);
     padding: var(--space-9) 0 var(--space-6);
 }
 
 .essay__title {
-    max-width: 18em;
-    font-size: clamp(32px, 4.6vw, 56px);
-    line-height: 1.06;
+    font-size: clamp(30px, 3.8vw, 46px);
+    line-height: 1.08;
     letter-spacing: -0.035em;
     text-wrap: balance;
 }
 
 .essay__dek {
-    max-width: 30em;
     font-size: clamp(20px, 2vw, 24px);
     font-style: italic;
     line-height: 1.4;
@@ -1016,6 +1022,14 @@ main:focus {
 .essay__layout {
     padding-top: var(--space-5);
     border-top: 1px solid var(--graphite);
+}
+
+.essay__cover {
+    display: block;
+}
+
+.entry__main > .essay__body {
+    margin-top: var(--space-5);
 }
 
 .essay__body {
@@ -1079,8 +1093,8 @@ main:focus {
 
 .essay__foot {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-2) var(--space-4);
+    grid-template-columns: var(--columns);
+    gap: var(--space-3) var(--column-gap);
     margin-top: var(--space-8);
     padding-top: var(--space-3);
     border-top: 1px solid var(--graphite);
@@ -1126,7 +1140,7 @@ main:focus {
 
     .hero__portrait {
         max-width: 420px;
-        margin-left: auto;
+        margin-right: 0;
     }
 
     .hero__foot {
@@ -1135,6 +1149,12 @@ main:focus {
 
     .entry {
         grid-template-columns: 1fr;
+    }
+
+    /* Single column: everything back in column 1, or the side items would open a phantom column. */
+    .entry__main,
+    .entry__note {
+        grid-column: 1;
     }
 
     .entry__note {
@@ -1154,23 +1174,23 @@ main:focus {
         height: 96px;
     }
 
-    .entry--article .entry__note,
-    .role .entry__note {
+    .role .entry__note,
+    .row .entry__note {
         order: -1;
         margin: 0 0 4px;
         padding: 0;
     }
 
-    .entry--article .when br {
-        display: none;
-    }
-
-    .entry--article .when__sep {
+    .row__label span {
         display: inline;
+        margin-right: 6px;
     }
 
-    .skills {
-        grid-template-columns: 1fr;
+    .entry--article .entry__note {
+        order: -1;
+        max-width: 480px;
+        margin: 0 0 var(--space-2);
+        padding: 0;
     }
 
     .essay__meta {
@@ -1255,10 +1275,6 @@ main:focus {
         padding-bottom: var(--space-8);
     }
 
-    .focus {
-        grid-template-columns: 1fr;
-    }
-
     .venture__card {
         grid-template-columns: 1fr;
     }
@@ -1269,6 +1285,10 @@ main:focus {
 
     .essay__foot {
         grid-template-columns: 1fr;
+    }
+
+    .essay__foot > span:empty {
+        display: none;
     }
 }
 

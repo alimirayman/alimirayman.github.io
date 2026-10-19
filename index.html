@@ -70,7 +70,7 @@
                 <a href="#philosophy" data-nav>Philosophy</a>
                 <a href="#ventures" data-nav>Ventures</a>
                 <a href="#now" data-nav>Now</a>
-                <a href="#writing" data-nav>Writing</a>
+                <a href="#articles" data-nav>Articles</a>
                 <a href="#experience" data-nav>Experience</a>
                 <a href="#contact" data-nav>Contact</a>
             </nav>
@@ -204,9 +204,11 @@
                     </aside>
                 </div>
 
-                <blockquote class="pullquote">
-                    <p>Technology should serve people – not overwhelm them.</p>
-                </blockquote>
+                <div class="entry">
+                    <blockquote class="entry__main pullquote">
+                        <p>Technology should serve people – not overwhelm them.</p>
+                    </blockquote>
+                </div>
             </div>
         </section>
 
@@ -317,73 +319,105 @@
                     <p class="section__summary">Active projects, milestones, and explorations</p>
                 </header>
 
-                <ul class="focus" role="list">
-                    <li class="focus__item">
-                        <p class="focus__state"><span>Scaling</span> Shastho Limited</p>
-                        <h3>Scaling Healthcare Infrastructure</h3>
-                        <p>Launching Shastho Card nationwide partnership program with 50+ diagnostic centers. Building AI-powered health recommendation engine and corporate wellness dashboard for enterprise clients.</p>
+                <ul class="rows" role="list">
+                    <li class="entry row">
+                        <div class="entry__main">
+                            <h3 class="row__title">Scaling Healthcare Infrastructure</h3>
+                            <p>Launching Shastho Card nationwide partnership program with 50+ diagnostic centers. Building AI-powered health recommendation engine and corporate wellness dashboard for enterprise clients.</p>
+                        </div>
+                        <p class="entry__note row__label"><span>Scaling</span> Shastho Limited</p>
                     </li>
-                    <li class="focus__item">
-                        <p class="focus__state"><span>Architecting</span> BusinessOS</p>
-                        <h3>Local-First Architecture</h3>
-                        <p>Architecting BusinessOS v2 with improved event sourcing and conflict resolution. Designing desktop-first UI for financial reporting and inventory management modules.</p>
+                    <li class="entry row">
+                        <div class="entry__main">
+                            <h3 class="row__title">Local-First Architecture</h3>
+                            <p>Architecting BusinessOS v2 with improved event sourcing and conflict resolution. Designing desktop-first UI for financial reporting and inventory management modules.</p>
+                        </div>
+                        <p class="entry__note row__label"><span>Architecting</span> BusinessOS</p>
                     </li>
-                    <li class="focus__item">
-                        <p class="focus__state"><span>Designing</span> Noyae</p>
-                        <h3>Furniture &amp; Interior Design</h3>
-                        <p>Building out the made-to-order furniture catalog and online ordering experience. Developing the design-build service workflow for residential and commercial interior projects across Dhaka.</p>
+                    <li class="entry row">
+                        <div class="entry__main">
+                            <h3 class="row__title">Furniture &amp; Interior Design</h3>
+                            <p>Building out the made-to-order furniture catalog and online ordering experience. Developing the design-build service workflow for residential and commercial interior projects across Dhaka.</p>
+                        </div>
+                        <p class="entry__note row__label"><span>Designing</span> Noyae</p>
                     </li>
-                    <li class="focus__item">
-                        <p class="focus__state"><span>Studying</span> Learning</p>
-                        <h3>Exploring System Design</h3>
-                        <p>Deep dive into distributed systems patterns, CRDT implementations for offline-first apps, and healthcare interoperability standards (HL7 FHIR). Currently reading about event-driven architectures and domain-driven design.</p>
+                    <li class="entry row">
+                        <div class="entry__main">
+                            <h3 class="row__title">Exploring System Design</h3>
+                            <p>Deep dive into distributed systems patterns, CRDT implementations for offline-first apps, and healthcare interoperability standards (HL7 FHIR). Currently reading about event-driven architectures and domain-driven design.</p>
+                        </div>
+                        <p class="entry__note row__label"><span>Studying</span> Learning</p>
                     </li>
                 </ul>
             </div>
         </section>
 
-        <section id="writing" class="section" aria-labelledby="writing-title">
+        <section id="articles" class="section" aria-labelledby="articles-title">
             <div class="sheet">
                 <header class="section__head">
-                    <p class="section__index"><span>04</span> Writing</p>
-                    <h2 id="writing-title" class="section__title">Essays and notes</h2>
-                    <p class="section__summary">On healthcare, work, learning, and communication</p>
+                    <p class="section__index"><span>04</span> Articles</p>
+                    <h2 id="articles-title" class="section__title">Articles</h2>
+                    <p class="section__summary">On healthcare, technology, work, learning, and communication</p>
                 </header>
 
-                <!-- Generated by `npm run writing` from writing/*.md. Edit the Markdown, not this list. -->
-                <!-- writing:latest:start -->
+                <!-- Generated by `npm run articles` from content/articles/*.md. Edit the Markdown, not this list. -->
+                <!-- articles:latest:start -->
                 <ol class="articles" role="list">
                     <li class="entry entry--article">
                         <div class="entry__main">
-                            <h3 class="article__title"><a href="/writing/healthcare-frontier-rural-communities/">The Healthcare Frontier: Transforming Access in Rural Communities</a></h3>
+                            <h3 class="article__title"><a href="/articles/healthcare-frontier-rural-communities/">The Healthcare Frontier: Transforming Access in Rural Communities</a></h3>
                             <p class="article__summary">In the ever-evolving landscape of global healthcare, one challenge consistently stands at the forefront: accessibility.</p>
+                            <p class="when"><time datetime="2024-01-25">25 Jan 2024</time> · 2 min read</p>
                         </div>
-                        <aside class="entry__note"><p class="when"><time datetime="2024-01-25">25 Jan 2024</time><span class="when__sep">, </span><br>2 min read</p></aside>
+                        <a class="entry__note article__thumb" href="/articles/healthcare-frontier-rural-communities/" tabindex="-1" aria-hidden="true">
+                        <picture class="article__cover">
+                            <source type="image/webp" srcset="/assets/images/articles/healthcare-frontier-rural-communities-thumb.webp">
+                            <img src="/assets/images/articles/healthcare-frontier-rural-communities.jpg" alt="Cover image for The Healthcare Frontier: Transforming Access in Rural Communities" width="1280" height="720" loading="lazy" decoding="async">
+                        </picture>
+                        </a>
                     </li>
                     <li class="entry entry--article">
                         <div class="entry__main">
-                            <h3 class="article__title"><a href="/writing/evolution-of-employment/">The Evolution of Employment: From Steam Engines to AI</a></h3>
+                            <h3 class="article__title"><a href="/articles/evolution-of-employment/">The Evolution of Employment: From Steam Engines to AI</a></h3>
                             <p class="article__summary">In the tapestry of technological evolution, understanding the transformation of jobs and careers is crucial.</p>
+                            <p class="when"><time datetime="2024-01-23">23 Jan 2024</time> · 2 min read</p>
                         </div>
-                        <aside class="entry__note"><p class="when"><time datetime="2024-01-23">23 Jan 2024</time><span class="when__sep">, </span><br>2 min read</p></aside>
+                        <a class="entry__note article__thumb" href="/articles/evolution-of-employment/" tabindex="-1" aria-hidden="true">
+                        <picture class="article__cover">
+                            <source type="image/webp" srcset="/assets/images/articles/evolution-of-employment-thumb.webp">
+                            <img src="/assets/images/articles/evolution-of-employment.jpg" alt="Cover image for The Evolution of Employment: From Steam Engines to AI" width="1280" height="720" loading="lazy" decoding="async">
+                        </picture>
+                        </a>
                     </li>
                     <li class="entry entry--article">
                         <div class="entry__main">
-                            <h3 class="article__title"><a href="/writing/realities-of-remote-work/">The Realities of Remote Work: Insights from a Decade of Experience</a></h3>
+                            <h3 class="article__title"><a href="/articles/realities-of-remote-work/">The Realities of Remote Work: Insights from a Decade of Experience</a></h3>
                             <p class="article__summary">The landscape of work has been dramatically reshaped in recent years, moving away from traditional office environments to more flexible remote settings.</p>
+                            <p class="when"><time datetime="2024-01-22">22 Jan 2024</time> · 3 min read</p>
                         </div>
-                        <aside class="entry__note"><p class="when"><time datetime="2024-01-22">22 Jan 2024</time><span class="when__sep">, </span><br>3 min read</p></aside>
+                        <a class="entry__note article__thumb" href="/articles/realities-of-remote-work/" tabindex="-1" aria-hidden="true">
+                        <picture class="article__cover">
+                            <source type="image/webp" srcset="/assets/images/articles/realities-of-remote-work-thumb.webp">
+                            <img src="/assets/images/articles/realities-of-remote-work.jpg" alt="Cover image for The Realities of Remote Work: Insights from a Decade of Experience" width="1280" height="720" loading="lazy" decoding="async">
+                        </picture>
+                        </a>
                     </li>
                     <li class="entry entry--article">
                         <div class="entry__main">
-                            <h3 class="article__title"><a href="/writing/unique-paths-to-learning/">Discovering Our Unique Paths to Learning: A Reflection on the Bangladeshi Educational System</a></h3>
+                            <h3 class="article__title"><a href="/articles/unique-paths-to-learning/">Discovering Our Unique Paths to Learning: A Reflection on the Bangladeshi Educational System</a></h3>
                             <p class="article__summary">In the heart of the Bangladeshi educational landscape, where traditional rote learning often takes precedence, there lies an unspoken truth - the essence of education transcends mere acquisition of knowledge.</p>
+                            <p class="when"><time datetime="2024-01-21">21 Jan 2024</time> · 2 min read</p>
                         </div>
-                        <aside class="entry__note"><p class="when"><time datetime="2024-01-21">21 Jan 2024</time><span class="when__sep">, </span><br>2 min read</p></aside>
+                        <a class="entry__note article__thumb" href="/articles/unique-paths-to-learning/" tabindex="-1" aria-hidden="true">
+                        <picture class="article__cover">
+                            <source type="image/webp" srcset="/assets/images/articles/unique-paths-to-learning-thumb.webp">
+                            <img src="/assets/images/articles/unique-paths-to-learning.jpg" alt="Cover image for Discovering Our Unique Paths to Learning: A Reflection on the Bangladeshi Educational System" width="1280" height="720" loading="lazy" decoding="async">
+                        </picture>
+                        </a>
                     </li>
                 </ol>
-                <p class="more-link"><a href="/writing/">All 7 essays</a></p>
-                <!-- writing:latest:end -->
+                <p class="more-link"><a href="/articles/">All 7 articles</a></p>
+                <!-- articles:latest:end -->
             </div>
         </section>
 
@@ -395,21 +429,27 @@
                     <p class="section__summary">Full-stack development with focus on scalable systems</p>
                 </header>
 
-                <ul class="skills" role="list">
-                    <li class="skill">
-                        <p class="skill__label">Build</p>
-                        <h3>Full-Stack Development</h3>
-                        <p>JavaScript/TypeScript ecosystems with Vue, React, Node.js. PHP and Laravel for backend systems. Mobile development with Flutter.</p>
+                <ul class="rows" role="list">
+                    <li class="entry row">
+                        <div class="entry__main">
+                            <h3 class="row__title">Full-Stack Development</h3>
+                            <p>JavaScript/TypeScript ecosystems with Vue, React, Node.js. PHP and Laravel for backend systems. Mobile development with Flutter.</p>
+                        </div>
+                        <p class="entry__note row__label"><span>Build</span></p>
                     </li>
-                    <li class="skill">
-                        <p class="skill__label">Architect</p>
-                        <h3>System Architecture</h3>
-                        <p>Event-sourced systems, local-first applications, scalable SaaS platforms. Experience with microservices and distributed systems.</p>
+                    <li class="entry row">
+                        <div class="entry__main">
+                            <h3 class="row__title">System Architecture</h3>
+                            <p>Event-sourced systems, local-first applications, scalable SaaS platforms. Experience with microservices and distributed systems.</p>
+                        </div>
+                        <p class="entry__note row__label"><span>Architect</span></p>
                     </li>
-                    <li class="skill">
-                        <p class="skill__label">Operate</p>
-                        <h3>Infrastructure &amp; DevOps</h3>
-                        <p>AWS, GCP, Firebase, Azure. Docker containerization, CI/CD pipelines, serverless deployments.</p>
+                    <li class="entry row">
+                        <div class="entry__main">
+                            <h3 class="row__title">Infrastructure &amp; DevOps</h3>
+                            <p>AWS, GCP, Firebase, Azure. Docker containerization, CI/CD pipelines, serverless deployments.</p>
+                        </div>
+                        <p class="entry__note row__label"><span>Operate</span></p>
                     </li>
                 </ul>
             </div>

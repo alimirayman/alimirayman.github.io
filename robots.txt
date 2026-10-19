@@ -1,6 +1,7 @@
 # robots.txt for aymana.li
 User-agent: *
 Allow: /
+Disallow: /content/
 
 # Sitemaps
 Sitemap: https://aymana.li/sitemap.xml
@@ -8,24 +9,32 @@ Sitemap: https://aymana.li/sitemap.xml
 # AI Crawlers - Allow all
 User-agent: GPTBot
 Allow: /
+Disallow: /content/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /content/
 
 User-agent: CCBot
 Allow: /
+Disallow: /content/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /content/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /content/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /content/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /content/
 
 User-agent: Bytespider
 Allow: /
+Disallow: /content/
