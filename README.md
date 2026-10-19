@@ -63,6 +63,8 @@ Articles are Markdown files in `content/articles/`. One command turns them into 
 
    Only `title` and `date` (YYYY-MM-DD) are required. `original` links to where it was first published. `tags` are comma-separated.
 
+   On the page, each `##` heading is numbered and listed under Contents in the margin (when there are two or more). A list whose items open with a bold lead-in, like `1. **Telemedicine**: text`, sets each lead on its own line.
+
 3. For a cover image, put a 1280x720 JPEG in `assets/images/articles/` and name it in `cover`. It shows on the article page, in the lists, and in link previews. Optional, for faster pages: add `your-article-slug.webp` (1280x720) and `your-article-slug-thumb.webp` (800x450) next to it, for example with `cwebp -q 70 cover.jpg -o your-article-slug.webp`. The build uses them when they exist.
 4. Run `npm run articles`. It rebuilds `articles/` (every article page and the index), the latest four on the home page, and `sitemap.xml`.
 5. Commit the Markdown, the images, and the generated files together.

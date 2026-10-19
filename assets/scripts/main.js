@@ -1,4 +1,5 @@
 import { enhanceAccessibility } from './modules/accessibility.js';
+import { trackContents } from './modules/contents.js';
 import { enhanceExternalLinks } from './modules/external-links.js';
 import { revealFigures } from './modules/figure-reveal.js';
 import { setupNavigation } from './modules/navigation.js';
@@ -10,6 +11,7 @@ const init = () => {
     enhanceExternalLinks();
     enhanceAccessibility();
     revealFigures();
+    trackContents();
 };
 
 if (document.readyState === 'loading') {

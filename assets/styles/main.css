@@ -1057,45 +1057,133 @@ main:focus {
     font-size: 12px;
 }
 
-/* Article pages (articles/<slug>/): title, cover, and body in the main column; details in the side column. */
+/* Article pages (articles/<slug>/): a night masthead like the hero, the cover across the edge where
+   night turns to paper, the text in the main column, and its contents in the side column. */
 
-.page--articles main {
-    padding-bottom: var(--space-12);
-}
-
-.section--first {
-    padding-top: var(--space-9);
-}
-
-.essay__head {
+.essay__masthead {
     padding: var(--space-9) 0 var(--space-6);
+    color: var(--on-night);
+    background: var(--night);
+}
+
+.essay__masthead :focus-visible,
+.essay__coverband :focus-visible {
+    outline-color: var(--blue-light);
+}
+
+.essay__masthead ::selection {
+    color: var(--night);
+    background: var(--blue-light);
+}
+
+.essay__kicker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--space-1);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+}
+
+.essay__kicker a {
+    text-decoration: none;
+}
+
+.essay__kicker a:hover {
+    color: var(--on-night);
+}
+
+.essay__kicker span,
+.essay__kicker time {
+    color: var(--on-night-soft);
 }
 
 .essay__title {
-    font-size: clamp(30px, 3.8vw, 46px);
-    line-height: 1.08;
-    letter-spacing: -0.035em;
+    max-width: 24ch;
+    margin-top: var(--space-3);
+    font-size: clamp(32px, 4.4vw, 58px);
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -0.04em;
     text-wrap: balance;
 }
 
 .essay__dek {
+    max-width: 34em;
+    margin-top: var(--space-3);
     font-size: clamp(20px, 2vw, 24px);
     font-style: italic;
     line-height: 1.4;
-    color: var(--graphite-soft);
+    color: var(--on-night-soft);
 }
 
-.essay__layout {
-    padding-top: var(--space-5);
-    border-top: 1px solid var(--graphite);
+.essay__byline {
+    align-items: center;
+    margin-top: var(--space-6);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--night-line);
+}
+
+.byline {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.byline__photo {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--night-line);
+}
+
+.byline__name {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.byline__role {
+    display: block;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.3;
+    color: var(--on-night-soft);
+}
+
+.essay__masthead .entry__note,
+.essay__masthead .entry__note a {
+    color: var(--blue-light);
+}
+
+.essay__masthead .entry__note a {
+    text-decoration-color: var(--blue-light);
+}
+
+.essay__masthead .entry__note a:hover {
+    color: var(--on-night);
+}
+
+/* The band is night above the middle of the cover and paper below it, whatever the cover's height. */
+.essay__coverband {
+    background: linear-gradient(to bottom, var(--night) 50%, var(--paper) 50%);
 }
 
 .essay__cover {
     display: block;
 }
 
-.entry__main > .essay__body {
-    margin-top: var(--space-5);
+.essay__cover img {
+    border: 0;
+}
+
+.essay__layout {
+    padding-top: var(--space-8);
 }
 
 .essay__body {
@@ -1107,10 +1195,29 @@ main:focus {
     margin-top: var(--space-3);
 }
 
+.essay__body > p:first-child {
+    font-size: clamp(22px, 2.1vw, 25px);
+    line-height: 1.5;
+}
+
+/* Each section opens on a hairline with its number above the heading, as in Philosophy. */
 .essay__body h2 {
-    margin-top: var(--space-6);
-    font-size: 22px;
-    letter-spacing: -0.02em;
+    margin-top: var(--space-8);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--rule);
+    font-size: clamp(24px, 2.4vw, 28px);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+}
+
+.essay__num {
+    display: block;
+    margin-bottom: var(--space-1);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--blue);
 }
 
 .essay__body h3 {
@@ -1144,38 +1251,84 @@ main:focus {
     color: var(--blue);
 }
 
+/* Lists whose items open with a bold lead-in become rows: number, lead, then the text. */
+.essay__body .leads {
+    display: block;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: lead;
+    border-bottom: 1px solid var(--rule);
+}
+
+.essay__body .leads li {
+    position: relative;
+    padding: var(--space-2) 0 var(--space-2) var(--space-6);
+    border-top: 1px solid var(--rule);
+    counter-increment: lead;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--graphite-soft);
+}
+
+.essay__body .leads li::before {
+    position: absolute;
+    top: calc(var(--space-2) + 2px);
+    left: 0;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+    color: var(--blue);
+}
+
+.essay__body ol.leads li::before {
+    content: counter(lead, decimal-leading-zero);
+}
+
+.essay__body ul.leads li::before {
+    content: '';
+    top: calc(var(--space-2) + 9px);
+    width: 7px;
+    height: 7px;
+    background: var(--blue);
+}
+
+.essay__body .lead {
+    display: block;
+    margin-bottom: 4px;
+    font-family: var(--font-mono);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--graphite);
+}
+
 .essay__body blockquote {
+    margin-block: var(--space-6);
     padding-left: var(--space-3);
     border-left: 2px solid var(--blue);
-    font-size: 22px;
+    font-size: clamp(24px, 2.6vw, 30px);
     font-style: italic;
-    line-height: 1.5;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
 }
 
-.essay__meta {
-    position: sticky;
-    top: 96px;
-}
-
-.essay__foot {
-    display: grid;
-    grid-template-columns: var(--columns);
-    gap: var(--space-3) var(--column-gap);
-    margin-top: var(--space-8);
+.entry__main > .essay__tags {
+    margin-top: var(--space-6);
     padding-top: var(--space-3);
     border-top: 1px solid var(--graphite);
-}
-
-.essay__next {
-    display: grid;
-    gap: 4px;
-    font-size: 19px;
-    line-height: 1.35;
-    text-decoration-color: var(--pencil);
-}
-
-.essay__next span {
     font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--graphite-soft);
+    overflow-wrap: anywhere;
+}
+
+.essay__tags span {
+    display: block;
+    margin-bottom: 4px;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -1183,13 +1336,143 @@ main:focus {
     color: var(--blue);
 }
 
-.essay__all {
-    grid-column: 1 / -1;
-    font-family: var(--font-mono);
-    font-size: 13px;
+/* Contents: stays in view while reading; contents.js marks the current section. */
+.essay__aside {
+    align-self: stretch;
+}
+
+.contents {
+    position: sticky;
+    top: calc(var(--bar-height) + var(--space-4));
+}
+
+.contents__title {
+    margin-bottom: var(--space-2);
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+}
+
+.contents ol {
+    border-top: 1px solid var(--graphite);
+}
+
+.contents li {
+    border-bottom: 1px solid var(--rule);
+}
+
+.contents a {
+    display: grid;
+    grid-template-columns: var(--space-5) minmax(0, 1fr);
+    padding: 10px 0;
+    font-family: var(--font-text);
+    font-size: 16px;
+    line-height: 1.35;
+    color: var(--graphite-soft);
+    text-decoration: none;
+}
+
+.contents a span {
+    padding-top: 2px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--graphite-soft);
+}
+
+.contents a:hover,
+.contents a[aria-current] {
+    color: var(--graphite);
+}
+
+.contents a:hover span,
+.contents a[aria-current] span {
+    color: var(--blue);
+}
+
+.contents a[aria-current] {
+    box-shadow: inset 2px 0 var(--blue);
+    margin-left: calc(-1 * var(--space-2));
+    padding-left: var(--space-2);
+}
+
+.essay__more {
+    margin-top: var(--space-12);
+}
+
+.essay__masthead--index + .section {
+    padding-top: var(--space-8);
+}
+
+/* Written by: closes article pages on night, like Contact on the home page. */
+.author {
+    padding-top: var(--space-9);
+}
+
+.author .entry {
+    align-items: end;
+}
+
+.entry__main > .author__name {
+    margin-top: var(--space-1);
+}
+
+.author__name {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+}
+
+.entry__main > .author__role {
+    margin-top: var(--space-1);
+}
+
+.author__role {
+    font-size: 18px;
+    font-style: italic;
+    color: var(--on-night-soft);
+}
+
+.entry__main > .author__lede {
+    margin-top: var(--space-3);
+}
+
+.author__lede {
+    max-width: 26em;
+    font-size: clamp(21px, 2vw, 25px);
+    line-height: 1.4;
+}
+
+.author__lede a {
+    text-decoration-color: var(--blue-light);
+    text-decoration-thickness: 2px;
+}
+
+.author__lede a:hover {
+    color: var(--blue-light);
+}
+
+.author .hero__actions {
+    margin-top: var(--space-4);
+}
+
+.author__photo img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: 50% 6%;
+    -webkit-mask-image:
+        linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%),
+        linear-gradient(to bottom, transparent 0, #000 10%, #000 70%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%),
+        linear-gradient(to bottom, transparent 0, #000 10%, #000 70%, transparent 100%);
+    mask-composite: intersect;
 }
 
 /* Tablet: notes leave the margin and sit with what they annotate. */
@@ -1264,14 +1547,25 @@ main:focus {
         padding: 0;
     }
 
-    .essay__meta {
-        position: static;
-        order: -1;
-        margin: 0 0 var(--space-4);
+    .essay__masthead {
+        padding: var(--space-6) 0 var(--space-5);
     }
 
-    .essay__meta .spec {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .essay__byline .entry__note {
+        margin-top: var(--space-2);
+    }
+
+    .essay__layout {
+        padding-top: var(--space-6);
+    }
+
+    .essay__aside {
+        display: none;
+    }
+
+    .author .entry__note {
+        width: min(100%, 320px);
+        margin-top: var(--space-5);
     }
 }
 
@@ -1359,12 +1653,17 @@ main:focus {
         font-size: 19px;
     }
 
-    .essay__foot {
-        grid-template-columns: 1fr;
+    .essay__body .leads li {
+        padding-left: var(--space-5);
+        font-size: 18px;
     }
 
-    .essay__foot > span:empty {
-        display: none;
+    .essay__masthead {
+        padding-top: var(--space-5);
+    }
+
+    .author {
+        padding-top: var(--space-8);
     }
 }
 

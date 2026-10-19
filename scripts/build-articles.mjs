@@ -99,9 +99,35 @@ const renderInline = (text) =>
         .replace(/(^|[^*\w])\*([^*\s][^*]*?)\*(?=[^*\w]|$)/g, '$1<em>$2</em>')
         .replace(/\n/g, '<br>');
 
+// A list item that opens with a bold lead-in ("**Telemedicine**: ...") sets the lead on its own line.
+// Handles "**Lead**: text", "**Lead:** text", and "**Lead**text".
+const renderItem = (text) => {
+    const lead = text.match(/^\*\*([^*]+?):?\*\*:?\s*([\s\S]*)$/);
+    return lead
+        ? `<li><strong class="lead">${renderInline(lead[1])}</strong> ${renderInline(lead[2])}</li>`
+        : `<li>${renderInline(text)}</li>`;
+};
+
+const renderItems = (lines, pattern) => {
+    const items = lines.map((line) => line.replace(pattern, ''));
+    const leads = items.some((item) => /^\*\*[^*]+\*\*/.test(item));
+    return { leads, html: items.map(renderItem).join('') };
+};
+
+const slugify = (text) =>
+    plainText(text)
+        .toLowerCase()
+        .replace(/['’]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '') || 'section';
+
 // Block Markdown: ## and ### headings, > quotes, - and 1. lists, images, paragraphs.
-const renderMarkdown = (markdown) =>
-    markdown
+// Returns the HTML and the ## headings, numbered, for the contents list.
+const renderMarkdown = (markdown) => {
+    const headings = [];
+    const ids = new Set();
+
+    const html = markdown
         .split(/\n{2,}/)
         .map((block) => block.trim())
         .filter(Boolean)
@@ -112,7 +138,19 @@ const renderMarkdown = (markdown) =>
 
             if (heading) {
                 const level = heading[1].length;
-                return `<h${level}>${renderInline(heading[2])}</h${level}>`;
+                let id = slugify(heading[2]);
+                for (let n = 2; ids.has(id); n += 1) {
+                    id = `${slugify(heading[2])}-${n}`;
+                }
+                ids.add(id);
+
+                if (level === 3) {
+                    return `<h3 id="${id}">${renderInline(heading[2])}</h3>`;
+                }
+
+                headings.push({ id, text: heading[2] });
+                const number = String(headings.length).padStart(2, '0');
+                return `<h2 id="${id}"><span class="essay__num">${number}</span> ${renderInline(heading[2])}</h2>`;
             }
 
             if (image) {
@@ -124,16 +162,21 @@ const renderMarkdown = (markdown) =>
             }
 
             if (lines.every((line) => /^[-*]\s+/.test(line))) {
-                return `<ul>${lines.map((line) => `<li>${renderInline(line.replace(/^[-*]\s+/, ''))}</li>`).join('')}</ul>`;
+                const list = renderItems(lines, /^[-*]\s+/);
+                return `<ul${list.leads ? ' class="leads"' : ''}>${list.html}</ul>`;
             }
 
             if (lines.every((line) => /^\d+\.\s+/.test(line))) {
-                return `<ol>${lines.map((line) => `<li>${renderInline(line.replace(/^\d+\.\s+/, ''))}</li>`).join('')}</ol>`;
+                const list = renderItems(lines, /^\d+\.\s+/);
+                return `<ol${list.leads ? ' class="leads"' : ''}>${list.html}</ol>`;
             }
 
             return `<p>${renderInline(block)}</p>`;
         })
         .join('\n');
+
+    return { html, headings };
+};
 
 const articleUrl = (article) => `/articles/${article.slug}/`;
 
@@ -147,12 +190,12 @@ const plainText = (markdown) =>
 const showDek = (article) => article.summary && !plainText(article.body).startsWith(plainText(article.summary).slice(0, 48));
 
 // The list used on the home page and on /articles/: text in the main column, the cover in the margin.
-const renderList = (articles) => `<ol class="articles" role="list">
+const renderList = (articles, level = 3) => `<ol class="articles" role="list">
 ${articles
     .map(
         (article) => `                    <li class="entry entry--article">
                         <div class="entry__main">
-                            <h3 class="article__title"><a href="${articleUrl(article)}">${escapeHtml(article.title)}</a></h3>
+                            <h${level} class="article__title"><a href="${articleUrl(article)}">${escapeHtml(article.title)}</a></h${level}>
                             <p class="article__summary">${escapeHtml(article.summary)}</p>
                             <p class="when"><time datetime="${article.date}">${formatDate(article.date)}</time> · ${article.minutes} min read</p>
                         </div>
@@ -238,8 +281,40 @@ ${body}
 </html>
 `;
 
-const renderArticlePage = (article, newer, older) => {
+// Closes every article page, on night like the contact section of the home page. Wording from the home page.
+const authorBand = `<section class="section--night author" aria-labelledby="author-title">
+            <div class="sheet entry">
+                <div class="entry__main">
+                    <p class="contact__eyebrow">Written by</p>
+                    <h2 id="author-title" class="author__name">Mir Ayman Ali</h2>
+                    <p class="author__role">Founder &amp; CEO, Shastho Limited</p>
+                    <p class="author__lede">
+                        Technology is a tool, not an end. I build systems that cut through real complexity – in
+                        <a href="/#shastho">healthcare</a>, <a href="/#businessos">business finance</a>, and
+                        <a href="/#noyae">interior design</a>.
+                    </p>
+                    <div class="hero__actions">
+                        <a class="button button--light" href="mailto:ayman@shastho.ai">Email</a>
+                        <a class="button" href="https://www.linkedin.com/in/alimirayman/">LinkedIn</a>
+                        <a class="button" href="/">About me</a>
+                    </div>
+                </div>
+                <figure class="entry__note author__photo">
+                    <picture>
+                        <source type="image/webp" srcset="/assets/images/portrait/ayman-720.webp">
+                        <img src="/assets/images/portrait/ayman-720.jpg" alt="Mir Ayman Ali in a navy three-piece suit" width="720" height="900" loading="lazy" decoding="async">
+                    </picture>
+                </figure>
+            </div>
+        </section>`;
+
+// Three more to read: the next older ones, wrapping round to the newest.
+const keepReading = (articles, index) =>
+    [...articles.slice(index + 1), ...articles.slice(0, index)].slice(0, 3);
+
+const renderArticlePage = (article, more, total) => {
     const image = article.cover ? `${IMAGE_URL}/${article.cover}` : '/assets/images/og-ayman.jpg';
+    const { html, headings } = renderMarkdown(article.body);
     const schema = {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
@@ -253,44 +328,68 @@ const renderArticlePage = (article, newer, older) => {
         ...(article.tags.length ? { keywords: article.tags.join(', ') } : {}),
     };
 
-    const neighbours = [
-        newer ? `<a class="essay__next" href="${articleUrl(newer)}"><span>Newer</span>${escapeHtml(newer.title)}</a>` : '<span></span>',
-        older ? `<a class="essay__next" href="${articleUrl(older)}"><span>Older</span>${escapeHtml(older.title)}</a>` : '<span></span>',
-    ].join('\n                ');
-
     const tags = article.tags.map((tag) => escapeHtml(tag.replace(/([a-z])([A-Z])/g, '$1 $2'))).join(', ');
 
+    // A contents list in the margin once there are at least two sections to move between.
+    const contents = headings.length > 1
+        ? `<aside class="entry__note essay__aside">
+                    <nav class="contents" aria-labelledby="contents-title">
+                        <p id="contents-title" class="contents__title">Contents</p>
+                        <ol role="list">
+${headings
+    .map((heading, i) => `                            <li><a href="#${heading.id}"><span>${String(i + 1).padStart(2, '0')}</span> ${renderInline(heading.text)}</a></li>`)
+    .join('\n')}
+                        </ol>
+                    </nav>
+                </aside>`
+        : '';
+
     const body = `        <article class="essay" aria-labelledby="essay-title">
-            <header class="sheet entry essay__head">
-                <div class="entry__main">
-                    <p class="section__index"><a href="/articles/">Articles</a></p>
+            <header class="essay__masthead">
+                <div class="sheet">
+                    <p class="essay__kicker"><a href="/articles/">Articles</a><span aria-hidden="true">/</span><time datetime="${article.date}">${formatDate(article.date)}</time></p>
                     <h1 id="essay-title" class="essay__title">${escapeHtml(article.title)}</h1>
                     ${showDek(article) ? `<p class="essay__dek">${escapeHtml(article.summary)}</p>` : ''}
+                    <div class="entry essay__byline">
+                        <p class="entry__main byline">
+                            <picture>
+                                <source type="image/webp" srcset="/assets/images/portrait/ayman-avatar.webp">
+                                <img class="byline__photo" src="/assets/images/portrait/ayman-avatar.jpg" alt="" width="160" height="160">
+                            </picture>
+                            <span><span class="byline__name">Mir Ayman Ali</span> <span class="byline__role">Founder &amp; CEO, Shastho Limited</span></span>
+                        </p>
+                        <p class="entry__note essay__facts">${article.minutes} min read${article.original ? `<br>First published on <a href="${article.original}">LinkedIn</a>` : ''}</p>
+                    </div>
                 </div>
             </header>
 
+            ${article.cover ? `<div class="essay__coverband">
+                <div class="sheet">
+                    ${coverPicture(article, { suffix: '', className: 'essay__cover', loading: 'eager' })}
+                </div>
+            </div>` : ''}
+
             <div class="sheet entry essay__layout">
                 <div class="entry__main">
-                    ${coverPicture(article, { suffix: '', className: 'essay__cover', loading: 'eager' })}
                     <div class="essay__body">
-${renderMarkdown(article.body)}
+${html}
                     </div>
+                    ${tags ? `<p class="essay__tags"><span>Tags</span> ${tags}</p>` : ''}
                 </div>
-                <aside class="entry__note essay__meta">
-                    <dl class="spec">
-                        <div><dt>Published</dt><dd><time datetime="${article.date}">${formatDate(article.date)}</time></dd></div>
-                        <div><dt>Reading time</dt><dd>${article.minutes} min</dd></div>
-                        ${article.original ? `<div><dt>First published on</dt><dd><a href="${article.original}">LinkedIn</a></dd></div>` : ''}
-                        ${tags ? `<div><dt>Tags</dt><dd>${tags}</dd></div>` : ''}
-                    </dl>
-                </aside>
+                ${contents}
             </div>
 
-            <nav class="sheet essay__foot" aria-label="More articles">
-                ${neighbours}
-                <a class="essay__all" href="/articles/">All articles</a>
-            </nav>
-        </article>`;
+            <section class="sheet essay__more" aria-labelledby="more-title">
+                <header class="section__head">
+                    <p class="section__index">Articles</p>
+                    <h2 id="more-title" class="section__title">Keep reading</h2>
+                </header>
+                ${renderList(more)}
+                <p class="more-link"><a href="/articles/">All ${total} articles</a></p>
+            </section>
+        </article>
+
+        ${authorBand}`;
 
     return page({
         title: `${article.title} | Mir Ayman Ali`,
@@ -325,16 +424,21 @@ const renderIndexPage = (articles) =>
                 url: `${SITE}${articleUrl(article)}`,
             })),
         },
-        body: `        <section class="section section--first" aria-labelledby="articles-title">
+        body: `        <header class="essay__masthead essay__masthead--index">
             <div class="sheet">
-                <header class="section__head">
-                    <p class="section__index">Articles</p>
-                    <h1 id="articles-title" class="section__title">Articles by Mir Ayman Ali</h1>
-                    <p class="section__summary">${articles.length} articles on healthcare, technology, work, learning, and communication</p>
-                </header>
-                ${renderList(articles)}
+                <p class="essay__kicker">${articles.length} articles</p>
+                <h1 id="articles-title" class="essay__title">Articles by Mir Ayman Ali</h1>
+                <p class="essay__dek">On healthcare, technology, work, learning, and communication</p>
             </div>
-        </section>`,
+        </header>
+
+        <div class="section">
+            <div class="sheet">
+                ${renderList(articles, 2)}
+            </div>
+        </div>
+
+        ${authorBand}`,
     });
 
 const updateHome = (articles) => {
@@ -385,7 +489,7 @@ mkdirSync(OUTPUT_DIR, { recursive: true });
 articles.forEach((article, index) => {
     const dir = join(OUTPUT_DIR, article.slug);
     mkdirSync(dir, { recursive: true });
-    writeFileSync(join(dir, 'index.html'), renderArticlePage(article, articles[index - 1], articles[index + 1]));
+    writeFileSync(join(dir, 'index.html'), renderArticlePage(article, keepReading(articles, index), articles.length));
 });
 
 writeFileSync(join(OUTPUT_DIR, 'index.html'), renderIndexPage(articles));
