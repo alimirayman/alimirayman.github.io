@@ -41,6 +41,15 @@ python3 -m http.server 4173
 
 Then open `http://localhost:4173`.
 
+## Adding an article
+
+Articles live in the `#writing` section of `index.html`, newest first. No build step, no JavaScript.
+
+1. Copy the `<li class="entry entry--article">` template from the HTML comment above the list.
+2. Paste it at the top of the `<ol class="articles">` list.
+3. Set the article URL, the title, one plain sentence for the summary, and the date (`datetime` as YYYY-MM-DD, plus the visible date) in the margin note.
+4. The "All articles on LinkedIn" link below the list always points at the full list.
+
 ## Notes
 
 - The site is intentionally static and SEO-friendly: primary content remains in HTML.
