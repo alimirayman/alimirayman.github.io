@@ -458,7 +458,8 @@ main:focus {
         --hero-rest: 740px;
         display: flex;
         flex-direction: column;
-        min-height: calc(100svh - var(--bar-height));
+        /* Capped so very tall monitors don't open a gap of empty night above the name. */
+        min-height: min(100svh - var(--bar-height), 1080px);
     }
 
     .hero__grid {
@@ -475,7 +476,7 @@ main:focus {
     }
 
     .hero__portrait img {
-        max-height: calc(100svh - var(--bar-height) - 152px);
+        max-height: min(100svh - var(--bar-height) - 152px, 928px);
         object-fit: cover;
         object-position: 50% 0;
     }
@@ -1392,9 +1393,7 @@ main:focus {
 }
 
 .contents a[aria-current] {
-    box-shadow: inset 2px 0 var(--blue);
-    margin-left: calc(-1 * var(--space-2));
-    padding-left: var(--space-2);
+    font-weight: 500;
 }
 
 .essay__more {
@@ -1697,9 +1696,31 @@ main:focus {
     .hero,
     .section--night,
     .site-footer,
-    .top-bar {
+    .top-bar,
+    .essay__masthead,
+    .essay__coverband {
         color: var(--graphite);
         background: transparent;
+    }
+
+    .essay__kicker,
+    .essay__kicker span,
+    .essay__kicker time,
+    .essay__dek,
+    .byline__role,
+    .essay__masthead .entry__note,
+    .essay__masthead .entry__note a,
+    .section--night .section__summary,
+    .contact__eyebrow,
+    .author__role {
+        color: var(--graphite-soft);
+    }
+
+    .top-bar__nav,
+    .contents,
+    .author__photo,
+    .hero__actions {
+        display: none;
     }
 
     .building__logos img {
