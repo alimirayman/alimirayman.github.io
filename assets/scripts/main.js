@@ -2,12 +2,16 @@ import { enhanceAccessibility } from './modules/accessibility.js';
 import { trackContents } from './modules/contents.js';
 import { enhanceExternalLinks } from './modules/external-links.js';
 import { revealFigures } from './modules/figure-reveal.js';
+import { foldOnPhones } from './modules/fold.js';
+import { setupMenu } from './modules/menu.js';
 import { setupNavigation } from './modules/navigation.js';
 import { updateCopyrightYear } from './modules/update-year.js';
 
 const init = () => {
     updateCopyrightYear();
+    setupMenu();
     setupNavigation();
+    foldOnPhones();
     enhanceExternalLinks();
     enhanceAccessibility();
     revealFigures();

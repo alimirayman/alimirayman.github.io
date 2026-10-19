@@ -74,7 +74,7 @@ The home page list sits between `<!-- articles:latest:start -->` and `<!-- artic
 ## Notes
 
 - The site is intentionally static and SEO-friendly: primary content remains in HTML.
-- JavaScript is limited to navigation state, accessibility checks, external-link hardening, and the footer year.
+- JavaScript is limited to navigation state, the phone menu and folds, accessibility checks, external-link hardening, and the footer year. Without it, every section shows in full.
 
 ## License
 
