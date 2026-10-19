@@ -215,7 +215,8 @@ const header = `<a href="#main" class="skip-link">Skip to main content</a>
                 <span class="top-bar__name">Mir Ayman Ali</span>
                 <span class="top-bar__note">Founder / Systems Architect / Product Builder</span>
             </a>
-            <nav class="top-bar__nav" aria-label="Primary">
+            <button class="top-bar__menu" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+            <nav id="site-nav" class="top-bar__nav" aria-label="Primary">
                 <a href="/#philosophy">Philosophy</a>
                 <a href="/#ventures">Ventures</a>
                 <a href="/#now">Now</a>
@@ -228,7 +229,6 @@ const header = `<a href="#main" class="skip-link">Skip to main content</a>
 
 const footer = `<footer class="site-footer">
         <div class="sheet site-footer__inner">
-            <p>Set in SUSE Mono and Newsreader. Built by hand with HTML, CSS, and a little JavaScript.</p>
             <p>© <span id="copyright-year">${new Date().getFullYear()}</span> Mir Ayman Ali</p>
         </div>
     </footer>`;

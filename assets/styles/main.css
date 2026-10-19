@@ -152,6 +152,18 @@ main:focus {
     top: 0;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* Header: night, like the hero it sits on. */
 
 .top-bar {
@@ -234,6 +246,34 @@ main:focus {
 
 .top-bar__nav a:focus-visible {
     outline-offset: -2px;
+}
+
+/* Phones only (menu.js): opens the section links in a panel over the page. */
+.top-bar__menu {
+    display: none;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 var(--space-2);
+    border: 1px solid var(--night-line);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--on-night);
+    background: transparent;
+    cursor: pointer;
+    transition: color var(--transition), background-color var(--transition), border-color var(--transition);
+}
+
+.top-bar__menu:hover {
+    border-color: var(--on-night-soft);
+}
+
+.top-bar__menu[aria-expanded='true'] {
+    border-color: var(--on-night);
+    color: var(--night);
+    background: var(--on-night);
 }
 
 /* Buttons. The plain button is for night backgrounds; light sections restyle it below. */
@@ -1008,6 +1048,12 @@ main:focus {
     font-size: 18px;
 }
 
+/* Phones only (fold.js): open the rest of a venture or a role in place. */
+.fold__toggle,
+.role__toggle {
+    display: none;
+}
+
 .when {
     font-size: 14px;
 }
@@ -1674,8 +1720,132 @@ main:focus {
         flex: none;
     }
 
+    /* With menu.js the header stays in view: the name and a Menu button that opens the links over the page. */
+    .has-menu {
+        scroll-padding-top: 80px;
+    }
+
+    .has-menu .top-bar {
+        position: sticky;
+    }
+
+    .has-menu .top-bar__inner {
+        flex-direction: row;
+        align-items: center;
+        min-height: 56px;
+        padding-top: 0;
+    }
+
+    .has-menu .top-bar__menu {
+        display: inline-flex;
+    }
+
+    /* The change of state is the feedback for these, so no grey flash on tap. */
+    .top-bar__menu,
+    .fold__toggle,
+    .role__toggle {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .has-menu .top-bar__nav {
+        display: none;
+    }
+
+    .has-menu .top-bar.is-open .top-bar__nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        height: calc(100vh - 57px);
+        height: calc(100dvh - 57px);
+        margin: 0;
+        padding: var(--space-1) var(--space-2) var(--space-5);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        background: var(--night);
+    }
+
+    .has-menu .top-bar.is-open .top-bar__nav a {
+        min-height: 56px;
+        border-bottom: 1px solid var(--night-line);
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        text-transform: none;
+        color: var(--on-night);
+        text-decoration: none;
+    }
+
+    .has-menu .top-bar.is-open .top-bar__nav a[aria-current] {
+        color: var(--blue-light);
+    }
+
+    /* Hero: the portrait first, edge to edge and cropped to head and shoulders, then the name on two lines. */
+    .hero__portrait {
+        order: -1;
+        max-width: none;
+        margin-inline: calc(-1 * var(--space-2));
+    }
+
+    .hero__portrait img {
+        aspect-ratio: 5 / 4;
+        object-fit: cover;
+        object-position: 50% 0;
+        -webkit-mask-image:
+            linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%),
+            linear-gradient(to bottom, transparent 0, #000 6%, #000 70%, transparent 100%);
+        mask-image:
+            linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%),
+            linear-gradient(to bottom, transparent 0, #000 6%, #000 70%, transparent 100%);
+    }
+
     .hero__text {
-        padding-top: var(--space-5);
+        padding: 0 0 var(--space-5);
+    }
+
+    .hero__name {
+        display: block;
+        font-size: clamp(48px, 16.5vw, 72px);
+    }
+
+    .hero__name span {
+        display: inline;
+    }
+
+    .hero__name span:nth-child(2)::after {
+        content: '\A';
+        white-space: pre;
+    }
+
+    /* Email stays on the first screen; the paragraph follows the buttons. */
+    .hero__body {
+        order: 1;
+        font-size: 17px;
+    }
+
+    .hero__actions {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .hero__actions .button {
+        grid-column: span 2;
+        padding-inline: var(--space-1);
+    }
+
+    .hero .hero__actions .button:nth-child(-n + 2) {
+        grid-column: span 3;
+    }
+
+    .section--night .hero__actions .button:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .author .hero__actions .button {
+        grid-column: span 3;
     }
 
     .building__logos {
@@ -1699,8 +1869,185 @@ main:focus {
         padding-bottom: var(--space-8);
     }
 
-    .venture__card {
-        grid-template-columns: 1fr;
+    .section__head {
+        margin-bottom: var(--space-4);
+    }
+
+    .entry--principles .entry__note,
+    .venture-group__head .entry__note {
+        max-width: 240px;
+    }
+
+    /* Ventures: the logo beside the name, the opening paragraph, then a button for the rest
+       of the story and the details (fold.js). The card's box gives way so its parts can move. */
+    .venture {
+        grid-template-columns: minmax(0, 1fr) auto;
+        column-gap: var(--space-2);
+        padding: var(--space-4) 0;
+    }
+
+    .venture > .entry__main,
+    .venture > .venture__card {
+        display: contents;
+    }
+
+    .venture .entry__main > *,
+    .venture .venture__card > * {
+        grid-column: 1 / -1;
+    }
+
+    .venture .venture__name {
+        grid-column: 1;
+        grid-row: 1;
+        align-self: center;
+    }
+
+    .venture .venture__logo,
+    .venture .venture__logo.venture__logo--wide {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: center;
+        width: auto;
+        max-width: none;
+        height: 40px;
+    }
+
+    .venture .venture__logo.venture__logo--wide {
+        height: 32px;
+    }
+
+    .venture .spec {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-2) var(--space-3);
+        margin-top: var(--space-3);
+        padding-top: var(--space-3);
+        border-top: 1px solid var(--rule);
+    }
+
+    .venture .spec dd {
+        font-size: 15px;
+    }
+
+    .fold__toggle {
+        display: inline-flex;
+        justify-self: start;
+        align-items: center;
+        gap: var(--space-1);
+        min-height: 44px;
+        padding: 0;
+        border: 0;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-align: left;
+        text-transform: uppercase;
+        color: var(--blue);
+        background: none;
+        cursor: pointer;
+    }
+
+    /* A plus that loses its upright when open. Drawn, not typed, so screen readers don't read it. */
+    .fold__toggle::after,
+    .role__toggle::after {
+        content: '';
+        flex: none;
+        width: 11px;
+        height: 11px;
+        background:
+            linear-gradient(currentColor, currentColor) center / 100% 1.5px no-repeat,
+            linear-gradient(currentColor, currentColor) center / 1.5px 100% no-repeat;
+    }
+
+    .is-open > .entry__main > .fold__toggle::after,
+    .role.is-open .role__toggle::after {
+        background: linear-gradient(currentColor, currentColor) center / 100% 1.5px no-repeat;
+    }
+
+    .venture.is-foldable:not(.is-open) .fold__toggle ~ *,
+    .venture.is-foldable:not(.is-open) .spec {
+        display: none;
+    }
+
+    /* Experience: years, company, and title; the whole row opens the description.
+       Once open, only the minus in the corner closes it, so the text can be selected. */
+    .role {
+        position: relative;
+    }
+
+    .role__toggle {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        color: var(--blue);
+        background: none;
+        cursor: pointer;
+    }
+
+    .role__toggle:focus-visible {
+        outline-offset: 4px;
+    }
+
+    .role__toggle::after {
+        position: absolute;
+        top: 30px;
+        right: 0;
+    }
+
+    .role.is-open .role__toggle {
+        inset: 13px -16px auto auto;
+        width: 44px;
+        height: 44px;
+    }
+
+    .role.is-open .role__toggle::after {
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+    }
+
+    .role.is-foldable:not(.is-open) .entry__main > p:last-child {
+        display: none;
+    }
+
+    .row .entry__main > p,
+    .role .entry__main > p:last-child {
+        font-size: 17px;
+    }
+
+    /* Article lists: the newest keeps its cover; the rest are short rows with a small cover on the right. */
+    .articles > .entry--article:not(:first-child),
+    .essay__more .entry--article {
+        grid-template-columns: minmax(0, 1fr) 104px;
+        column-gap: var(--space-2);
+    }
+
+    .articles > .entry--article:not(:first-child) .article__thumb,
+    .essay__more .entry--article .article__thumb {
+        grid-column: 2;
+        grid-row: 1;
+        order: 0;
+        margin: 0;
+        padding-top: 4px;
+    }
+
+    .articles > .entry--article:not(:first-child) .article__summary,
+    .essay__more .article__summary {
+        display: none;
+    }
+
+    .articles > .entry--article:not(:first-child) .article__title,
+    .essay__more .article__title {
+        font-size: 19px;
+    }
+
+    .articles > .entry--article:not(:first-child) .entry__main > .when,
+    .essay__more .entry__main > .when {
+        margin-top: var(--space-1);
     }
 
     .essay__body {
