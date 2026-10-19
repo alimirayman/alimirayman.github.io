@@ -74,7 +74,8 @@ img {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     margin: 0;
     font-family: var(--font-mono);
     font-weight: 700;
@@ -415,22 +416,22 @@ main:focus {
 }
 
 .building__label {
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1);
     font-size: 11px;
     line-height: 1.5;
     color: var(--on-night-soft);
 }
 
-/* Three logos on one row that spans the side column; they scale down together instead of wrapping. */
+/* Four logos in two rows: Shastho and BusinessOS, then the Real Estate & Interior group. */
 .building {
     container-type: inline-size;
 }
 
 .building__logos {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-2) var(--space-5);
 }
 
 .building__logos a {
@@ -442,20 +443,25 @@ main:focus {
     opacity: 1;
 }
 
-/* Same height for all three. The lockups' widths add up to 15.6 times their height,
-   so this keeps them on one row and scales them together when the column is narrow. */
+/* Same height for all four. The wider logo of each column adds up to 11.2 times the height,
+   so this keeps two to a row and scales them together when the column is narrow. */
 .building__logos img {
     width: auto;
-    height: min(22px, calc((100cqi - 2 * var(--space-3)) / 15.6));
+    height: min(20px, calc((100cqi - var(--space-5)) / 11.3));
     filter: brightness(0) invert(1);
+}
+
+/* Assent's lockup is a fine script under a tall mark; it needs more height to read at the same weight. */
+.building__logos .building__script {
+    height: min(26px, calc((100cqi - var(--space-5)) / 11.3 * 1.3));
 }
 
 /* On a wide window that is tall enough, the first screen ends on the numbers and logos:
    the hero fills the window under the header, and the name and spacing shrink with its height. */
-@media (min-width: 961px) and (min-height: 840px) {
+@media (min-width: 961px) and (min-height: 880px) {
     .hero {
         /* The header and hero minus the name, measured; more where the column is narrow and text wraps. */
-        --hero-rest: 740px;
+        --hero-rest: 758px;
         display: flex;
         flex-direction: column;
         /* Capped so very tall monitors don't open a gap of empty night above the name. */
@@ -476,7 +482,7 @@ main:focus {
     }
 
     .hero__portrait img {
-        max-height: min(100svh - var(--bar-height) - 152px, 928px);
+        max-height: min(100svh - var(--bar-height) - 168px, 912px);
         object-fit: cover;
         object-position: 50% 0;
     }
@@ -486,14 +492,14 @@ main:focus {
     }
 }
 
-@media (min-width: 1225px) and (min-height: 840px) {
+@media (min-width: 1225px) and (min-height: 880px) {
     .hero {
-        --hero-rest: 726px;
+        --hero-rest: 744px;
     }
 }
 
 /* Shorter windows: the name sets on two lines so it can stay large. */
-@media (min-width: 961px) and (min-height: 840px) and (max-height: 989px) {
+@media (min-width: 961px) and (min-height: 880px) and (max-height: 989px) {
     .hero__name {
         display: block;
         font-size: clamp(56px, min(9.2vw, (100svh - var(--hero-rest)) / 1.72), 124px);
@@ -669,16 +675,41 @@ main:focus {
     fill: var(--blue);
 }
 
+.construction__shell > * {
+    fill: none;
+    stroke: var(--graphite);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+}
+
+/* The roof is drawn like the Assent mark: a thin rising line, a heavy falling one, a double base. */
+.construction__shell > .construction__ridge {
+    stroke-width: 8;
+    stroke-linecap: butt;
+}
+
+.construction__interior > * {
+    fill: none;
+    stroke: var(--blue);
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
 /* The figure draws once when it scrolls into view (figure-reveal.js). */
 
 .construction.is-waiting .construction__pencil > *,
-.construction.is-waiting .construction__star {
+.construction.is-waiting .construction__star,
+.construction.is-waiting .construction__shell > *,
+.construction.is-waiting .construction__interior > * {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
 }
 
 .construction.is-drawing .construction__pencil > *,
-.construction.is-drawing .construction__star {
+.construction.is-drawing .construction__star,
+.construction.is-drawing .construction__shell > *,
+.construction.is-drawing .construction__interior > * {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
     animation: draw 0.9s ease-out forwards;
@@ -696,6 +727,15 @@ main:focus {
     animation-delay: 1.5s;
     animation-timing-function: ease-in-out;
 }
+
+.construction.is-drawing .construction__shell > * { animation-delay: 1.2s; }
+.construction.is-drawing .construction__shell > :nth-child(2) { animation-delay: 1.5s; }
+.construction.is-drawing .construction__shell > :nth-child(3) { animation-delay: 1.8s; }
+.construction.is-drawing .construction__shell > :nth-child(4) { animation-delay: 2s; }
+.construction.is-drawing .construction__interior > * { animation-delay: 2.6s; animation-duration: 1.2s; }
+.construction.is-drawing .construction__interior > :nth-child(2) { animation-delay: 2.8s; }
+.construction.is-drawing .construction__interior > :nth-child(3) { animation-delay: 3s; }
+.construction.is-drawing .construction__interior > :nth-child(4) { animation-delay: 3.1s; }
 
 @keyframes draw {
     to {
@@ -720,9 +760,21 @@ main:focus {
     border-top: 1px solid var(--rule);
 }
 
-.venture:first-of-type {
+.section__head + .venture {
     padding-top: 0;
     border-top: 0;
+}
+
+/* Real Estate & Interior: a group heading with Fig. 2, then its two companies. */
+.venture-group__head {
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--graphite);
+}
+
+.venture__logo.venture__logo--wide {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
 }
 
 .venture__name {
@@ -1496,8 +1548,7 @@ main:focus {
     }
 
     .building__logos {
-        justify-content: flex-start;
-        gap: var(--space-5);
+        justify-content: start;
     }
 
     .entry {
@@ -1514,7 +1565,8 @@ main:focus {
         margin-top: var(--space-3);
     }
 
-    .entry--principles .entry__note {
+    .entry--principles .entry__note,
+    .venture-group__head .entry__note {
         max-width: 320px;
     }
 
@@ -1525,6 +1577,10 @@ main:focus {
 
     .venture__logo {
         height: 96px;
+    }
+
+    .venture__card--wide {
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .role .entry__note,
@@ -1624,7 +1680,6 @@ main:focus {
 
     .building__logos {
         justify-content: space-between;
-        gap: var(--space-3);
     }
 
     .metrics {
@@ -1679,7 +1734,9 @@ main:focus {
     }
 
     .construction .construction__pencil > *,
-    .construction .construction__star {
+    .construction .construction__star,
+    .construction .construction__shell > *,
+    .construction .construction__interior > * {
         stroke-dashoffset: 0 !important;
     }
 }
