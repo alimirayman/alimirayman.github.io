@@ -43,12 +43,30 @@ Then open `http://localhost:4173`.
 
 ## Adding an article
 
-Articles live in the `#writing` section of `index.html`, newest first. No build step, no JavaScript.
+Articles are Markdown files in `writing/`. One command turns them into pages.
 
-1. Copy the `<li class="entry entry--article">` template from the HTML comment above the list.
-2. Paste it at the top of the `<ol class="articles">` list.
-3. Set the article URL, the title, one plain sentence for the summary, and the date (`datetime` as YYYY-MM-DD, plus the visible date) in the margin note.
-4. The "All articles on LinkedIn" link below the list always points at the full list.
+1. Create `writing/your-article-slug.md`. The file name becomes the URL: `/writing/your-article-slug/`.
+2. Start it with front matter, then write the article in Markdown (`##` headings, lists, `**bold**`, `*italic*`, `[links](url)`, `> quotes`):
+
+   ```markdown
+   ---
+   title: Your article title
+   date: 2026-10-19
+   summary: One sentence shown in the lists and in link previews.
+   original: https://www.linkedin.com/pulse/your-article
+   cover: your-article-slug.jpg
+   tags: Healthcare, Remote Work
+   ---
+
+   Your first paragraph.
+   ```
+
+   Only `title` and `date` (YYYY-MM-DD) are required. `original` links to where it was first published. `cover` is a 1200x630 image in `assets/images/writing/`, used for link previews. `tags` are comma-separated.
+
+3. Run `npm run writing`. It builds `writing/<slug>/index.html`, the `/writing/` index, the latest four essays on the home page, and `sitemap.xml`.
+4. Commit the Markdown and the generated files together.
+
+The home page list sits between `<!-- writing:latest:start -->` and `<!-- writing:latest:end -->` in `index.html`. Leave those markers in place; the build rewrites what is between them.
 
 ## Notes
 
