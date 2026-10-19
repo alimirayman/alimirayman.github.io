@@ -4,7 +4,8 @@
   "description": "Clean, minimal portfolio with retro monospaced typography.",
   "main": "index.js",
   "scripts": {
-    "start": "http-server -p 8000"
+    "start": "http-server -c-1 -p 8000",
+    "articles": "node scripts/build-articles.mjs"
   },
   "repository": {
     "type": "git",

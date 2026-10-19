@@ -41,6 +41,36 @@ python3 -m http.server 4173
 
 Then open `http://localhost:4173`.
 
+## Adding an article
+
+Articles are Markdown files in `content/articles/`. One command turns them into pages at `/articles/<slug>/`.
+
+1. Create `content/articles/your-article-slug.md`. The file name becomes the URL: `/articles/your-article-slug/`.
+2. Start it with front matter, then write the article in Markdown (`##` headings, lists, `**bold**`, `*italic*`, `[links](url)`, `> quotes`):
+
+   ```markdown
+   ---
+   title: Your article title
+   date: 2026-10-19
+   summary: One sentence shown in the lists and in link previews.
+   original: https://www.linkedin.com/pulse/your-article
+   cover: your-article-slug.jpg
+   tags: Healthcare, Remote Work
+   ---
+
+   Your first paragraph.
+   ```
+
+   Only `title` and `date` (YYYY-MM-DD) are required. `original` links to where it was first published. `tags` are comma-separated.
+
+   On the page, each `##` heading is numbered and listed under Contents in the margin (when there are two or more). A list whose items open with a bold lead-in, like `1. **Telemedicine**: text`, sets each lead on its own line.
+
+3. For a cover image, put a 1280x720 JPEG in `assets/images/articles/` and name it in `cover`. It shows on the article page, in the lists, and in link previews. Optional, for faster pages: add `your-article-slug.webp` (1280x720) and `your-article-slug-thumb.webp` (800x450) next to it, for example with `cwebp -q 70 cover.jpg -o your-article-slug.webp`. The build uses them when they exist.
+4. Run `npm run articles`. It rebuilds `articles/` (every article page and the index), the latest four on the home page, and `sitemap.xml`.
+5. Commit the Markdown, the images, and the generated files together.
+
+The home page list sits between `<!-- articles:latest:start -->` and `<!-- articles:latest:end -->` in `index.html`. Leave those markers in place. `content/` is kept out of search results in `robots.txt`.
+
 ## Notes
 
 - The site is intentionally static and SEO-friendly: primary content remains in HTML.

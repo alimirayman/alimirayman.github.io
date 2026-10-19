@@ -1,4 +1,5 @@
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+const SECTION_GAP = 24;
 
 const getScrollBehavior = () => {
     if (window.matchMedia(REDUCED_MOTION_QUERY).matches) {
@@ -16,25 +17,28 @@ export const setupNavigation = () => {
         return;
     }
 
-    const entries = navLinks
-        .map((link) => {
-            const hash = link.getAttribute('href');
-            const section = hash ? document.querySelector(hash) : null;
+    const linksByHash = new Map(
+        navLinks
+            .map((link) => [link.getAttribute('href'), link])
+            .filter(([hash]) => hash && document.querySelector(hash))
+    );
 
-            return section ? { hash, link, section } : null;
-        })
-        .filter(Boolean);
-
-    if (!entries.length) {
+    if (!linksByHash.size) {
         return;
     }
 
+    // Every top-level section is observed, so sections without a nav link (like the stack) clear the active state.
+    const sections = Array.from(document.querySelectorAll('main > section[id]'));
+
+    // The header only takes up space while it is sticky (wide screens).
     const getHeaderOffset = () => {
-        return header ? header.offsetHeight + 24 : 96;
+        const isSticky = header && window.getComputedStyle(header).position === 'sticky';
+
+        return isSticky ? header.offsetHeight + SECTION_GAP : SECTION_GAP;
     };
 
     const setActiveLink = (activeHash) => {
-        entries.forEach(({ hash, link }) => {
+        linksByHash.forEach((link, hash) => {
             const isActive = hash === activeHash;
             link.classList.toggle('is-active', isActive);
 
@@ -62,51 +66,60 @@ export const setupNavigation = () => {
         window.location.hash = hash;
     };
 
-    const clickHandlers = entries.map(({ hash, link, section }) => {
+    const clickHandlers = Array.from(linksByHash).map(([hash, link]) => {
         const handleClick = (event) => {
             event.preventDefault();
             setActiveLink(hash);
-            scrollToSection(section, hash);
+            scrollToSection(document.querySelector(hash), hash);
         };
 
         link.addEventListener('click', handleClick);
         return { handleClick, link };
     });
 
-    const knownHashes = new Set(entries.map(({ hash }) => hash));
-    const defaultHash = entries[0].hash;
-    setActiveLink(knownHashes.has(window.location.hash) ? window.location.hash : defaultHash);
+    // Nothing is active at the top of the page unless the URL points at a section.
+    setActiveLink(linksByHash.has(window.location.hash) ? window.location.hash : null);
 
     if (!('IntersectionObserver' in window)) {
         return;
     }
 
     let observer;
+    const inBand = new Set();
 
     const createObserver = () => {
         if (observer) {
             observer.disconnect();
         }
 
+        inBand.clear();
+
+        // A band near the top of the viewport. The lowest section inside it is the current one.
         observer = new IntersectionObserver(
             (intersectionEntries) => {
-                const visibleSections = intersectionEntries
-                    .filter((entry) => entry.isIntersecting)
-                    .sort((entryA, entryB) => entryB.intersectionRatio - entryA.intersectionRatio);
+                intersectionEntries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        inBand.add(entry.target);
+                    } else {
+                        inBand.delete(entry.target);
+                    }
+                });
 
-                if (!visibleSections.length) {
+                const current = sections.filter((section) => inBand.has(section)).pop();
+
+                if (!current) {
                     return;
                 }
 
-                setActiveLink(`#${visibleSections[0].target.id}`);
+                setActiveLink(linksByHash.has(`#${current.id}`) ? `#${current.id}` : null);
             },
             {
-                rootMargin: `-${getHeaderOffset()}px 0px -45% 0px`,
-                threshold: [0.15, 0.35, 0.55],
+                rootMargin: `-${getHeaderOffset()}px 0px -60% 0px`,
+                threshold: 0,
             }
         );
 
-        entries.forEach(({ section }) => observer.observe(section));
+        sections.forEach((section) => observer.observe(section));
     };
 
     createObserver();

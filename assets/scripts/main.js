@@ -1,5 +1,7 @@
 import { enhanceAccessibility } from './modules/accessibility.js';
+import { trackContents } from './modules/contents.js';
 import { enhanceExternalLinks } from './modules/external-links.js';
+import { revealFigures } from './modules/figure-reveal.js';
 import { setupNavigation } from './modules/navigation.js';
 import { updateCopyrightYear } from './modules/update-year.js';
 
@@ -8,6 +10,8 @@ const init = () => {
     setupNavigation();
     enhanceExternalLinks();
     enhanceAccessibility();
+    revealFigures();
+    trackContents();
 };
 
 if (document.readyState === 'loading') {
