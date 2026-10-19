@@ -594,6 +594,10 @@ main:focus {
     color: var(--graphite-soft);
 }
 
+.when__sep {
+    display: none;
+}
+
 .when {
     font-family: var(--font-display);
     font-size: 15px;
@@ -737,8 +741,8 @@ main:focus {
         display: none;
     }
 
-    .entry--role .when {
-        word-spacing: 0.2em;
+    .entry--role .when__sep {
+        display: inline;
     }
 }
 
