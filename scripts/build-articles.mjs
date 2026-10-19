@@ -1,6 +1,8 @@
 // Builds the Articles section from content/articles/*.md: one page per article at /articles/<slug>/,
-// the /articles/ index, the latest articles on the home page, and sitemap.xml.
-// No dependencies: run `npm run articles`.
+// the /articles/ index, the latest articles on the home page, and sitemap.xml. It also stamps the CSS
+// and JS links with a hash of their contents (see versionAssets).
+// No dependencies: run `npm run build` (or `npm run articles`).
+import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -264,7 +266,7 @@ const page = ({ title, description, path, image, imageSize, type, body, schema }
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SUSE+Mono:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="stylesheet" href="/assets/styles/main.css?v=${assets.css}">
     <script type="application/ld+json">${JSON.stringify(schema)}</script>
 </head>
 <body class="page--articles">
@@ -276,7 +278,7 @@ ${body}
 
     ${footer}
 
-    <script type="module" src="/assets/scripts/main.js"></script>
+    <script type="module" src="/assets/scripts/main.js?v=${assets.js}"></script>
 </body>
 </html>
 `;
@@ -456,7 +458,35 @@ const updateHome = (articles) => {
                 <p class="more-link"><a href="/articles/">All ${articles.length} articles</a></p>
                 ${HOME_END}`;
 
-    writeFileSync(file, html.slice(0, start) + latest + html.slice(end + HOME_END.length));
+    const updated = (html.slice(0, start) + latest + html.slice(end + HOME_END.length))
+        .replace(/(href="\.\/assets\/styles\/main\.css)(?:\?v=\w+)?"/, `$1?v=${assets.css}"`)
+        .replace(/(src="\.\/assets\/scripts\/main\.js)(?:\?v=\w+)?"/, `$1?v=${assets.js}"`);
+
+    writeFileSync(file, updated);
+};
+
+// Cloudflare tells browsers to keep CSS and JS for hours, while pages refresh within minutes. So every
+// page asks for them by a hash of their contents, and main.js does the same for its modules: a change
+// means a new URL, and a new page never runs against an old stylesheet or script.
+const hashOf = (text) => createHash('sha256').update(text).digest('hex').slice(0, 10);
+
+const versionAssets = () => {
+    const scripts = join(ROOT, 'assets', 'scripts');
+    const mainFile = join(scripts, 'main.js');
+    const main = readFileSync(mainFile, 'utf8');
+    const versioned = main.replace(
+        /(['"])\.\/modules\/([\w-]+\.js)(?:\?v=\w+)?\1/g,
+        (_, quote, name) => `${quote}./modules/${name}?v=${hashOf(readFileSync(join(scripts, 'modules', name), 'utf8'))}${quote}`
+    );
+
+    if (versioned !== main) {
+        writeFileSync(mainFile, versioned);
+    }
+
+    return {
+        css: hashOf(readFileSync(join(ROOT, 'assets', 'styles', 'main.css'), 'utf8')),
+        js: hashOf(versioned),
+    };
 };
 
 const updateSitemap = (articles) => {
@@ -476,6 +506,8 @@ ${urls.map((url) => `    <url>\n        <loc>${url.loc}</loc>\n        <lastmod>
 `
     );
 };
+
+const assets = versionAssets();
 
 const articles = readdirSync(SOURCE_DIR)
     .filter((file) => file.endsWith('.md'))
