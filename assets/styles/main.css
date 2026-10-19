@@ -42,6 +42,7 @@
     --sheet: 1160px;
     --columns: minmax(0, 1.74fr) minmax(0, 1fr);
     --column-gap: var(--space-8);
+    --bar-height: 65px;
     --transition: 150ms ease;
 }
 
@@ -170,7 +171,7 @@ main:focus {
     justify-content: space-between;
     align-items: center;
     gap: var(--space-4);
-    min-height: 64px;
+    min-height: calc(var(--bar-height) - 1px);
 }
 
 .top-bar__brand {
@@ -447,6 +448,64 @@ main:focus {
     width: auto;
     height: min(22px, calc((100cqi - 2 * var(--space-3)) / 15.6));
     filter: brightness(0) invert(1);
+}
+
+/* On a wide window that is tall enough, the first screen ends on the numbers and logos:
+   the hero fills the window under the header, and the name and spacing shrink with its height. */
+@media (min-width: 961px) and (min-height: 840px) {
+    .hero {
+        /* The header and hero minus the name, measured; more where the column is narrow and text wraps. */
+        --hero-rest: 740px;
+        display: flex;
+        flex-direction: column;
+        min-height: calc(100svh - var(--bar-height));
+    }
+
+    .hero__grid {
+        flex: 1 0 auto;
+    }
+
+    .hero__text {
+        gap: clamp(16px, 2.4svh, 24px);
+        padding: clamp(32px, 6svh, 72px) 0 clamp(32px, 4svh, 56px);
+    }
+
+    .hero__name {
+        font-size: clamp(64px, min(9.2vw, (100svh - var(--hero-rest)) / 2.58), 124px);
+    }
+
+    .hero__portrait img {
+        max-height: calc(100svh - var(--bar-height) - 152px);
+        object-fit: cover;
+        object-position: 50% 0;
+    }
+
+    .hero__foot {
+        padding: var(--space-3) 0 var(--space-4);
+    }
+}
+
+@media (min-width: 1225px) and (min-height: 840px) {
+    .hero {
+        --hero-rest: 726px;
+    }
+}
+
+/* Shorter windows: the name sets on two lines so it can stay large. */
+@media (min-width: 961px) and (min-height: 840px) and (max-height: 989px) {
+    .hero__name {
+        display: block;
+        font-size: clamp(56px, min(9.2vw, (100svh - var(--hero-rest)) / 1.72), 124px);
+    }
+
+    .hero__name span {
+        display: inline;
+    }
+
+    .hero__name span:nth-child(2)::after {
+        content: '\A';
+        white-space: pre;
+    }
 }
 
 /* Sections: a drafting rule with end ticks, then entries with a margin for notes. */
