@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resume · Mir Ayman Ali</title>
+    <meta name="description" content="Resume of Mir Ayman Ali, Co-Founder & CEO of Shastho Limited.">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0f0f11">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <style>
+        :root { --night: #0f0f11; --ink: #f0efea; --blue: #9db0f0; }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; height: 100%; background: var(--night); color: var(--ink);
+            font: 14px/1.4 ui-monospace, "SUSE Mono", SFMono-Regular, Menlo, monospace; }
+        body { display: flex; flex-direction: column; }
+        header { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+            padding: 8px 16px; min-height: 48px; }
+        header a { color: var(--blue); text-decoration: none; }
+        header a:hover, header a:focus-visible { text-decoration: underline; }
+        header nav { display: flex; gap: 16px; }
+        a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+        object { flex: 1; width: 100%; border: 0; background: #525659; }
+        .fallback { display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 16px; height: 100%; padding: 32px 16px; text-align: center; background: var(--night); }
+        .fallback a { color: var(--night); background: var(--ink); padding: 12px 24px; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/">Mir Ayman Ali</a>
+        <nav aria-label="Resume">
+            <a href="/resume/Mir_Ayman_Ali_Resume.pdf" download>Download</a>
+            <a href="/resume/Mir_Ayman_Ali_Resume.pdf" target="_blank" rel="noopener">Open</a>
+        </nav>
+    </header>
+    <object data="/resume/Mir_Ayman_Ali_Resume.pdf#view=FitH" type="application/pdf" aria-label="Resume of Mir Ayman Ali (PDF)">
+        <div class="fallback">
+            <p>This browser can't show the PDF here.</p>
+            <a href="/resume/Mir_Ayman_Ali_Resume.pdf">Open the PDF</a>
+        </div>
+    </object>
+</body>
+</html>
